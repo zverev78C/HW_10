@@ -1,0 +1,190 @@
+﻿<Window x:Class="HW_10_1.NewClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HW_10_1"
+        mc:Ignorable="d"
+       
+        
+         ResizeMode="NoResize"   
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        AllowsTransparency="true"
+        Background="Transparent"
+        Title="NewClient" Height="441" Width="302" Foreground="{x:Null}" >
+
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="10" 
+                Background="#FF9EDFFB" 
+                BorderThickness="5"
+                Grid.ColumnSpan="2" 
+                BorderBrush="#FF1E6582" Grid.RowSpan="14">
+        </Border>
+
+        <Button 
+     x:Name="Exit" 
+     HorizontalAlignment="Center" 
+     Margin="0,0,0,7" 
+     VerticalAlignment="Center" 
+     Width="104" Height="30" 
+     Background="#FF839BE4" 
+     Content="Отмена"
+     FontSize="16"
+     Padding="3,3,3,3" Click="Button_Exit_Click" Grid.Column="1" BorderBrush="#FF1E6582" BorderThickness="2" Grid.Row="13">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" 
+                     Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button 
+            x:Name="Add" 
+            HorizontalAlignment="Center" 
+            Margin="0,0,0,7" 
+            VerticalAlignment="Center" 
+            Width="104" Height="30" 
+            Background="#FF839BE4" 
+            Content="Добавить"
+            FontSize="16"
+            Padding="3,3,3,3" 
+            BorderBrush="#FF1E6582" 
+            BorderThickness="2" Grid.Row="13" Click="Add_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBlock x:Name="title" 
+                   HorizontalAlignment="Left" 
+                   Margin="29,17,0,0" 
+                   Text="Данные Новoго Клиента" 
+                   VerticalAlignment="Top" 
+                   Width="244" 
+                   Grid.ColumnSpan="2" 
+                   TextAlignment="Center" 
+                   FontSize="18" 
+                   Foreground="Black"
+                   ScrollViewer.VerticalScrollBarVisibility="Disabled" Height="24"/>
+        <TextBlock x:Name="LastName" 
+                   TextWrapping="NoWrap" 
+                   Text="Фамилия:" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" 
+                   Grid.Row="2" 
+                   Grid.ColumnSpan="2" 
+                    Foreground="Black"
+                   Width="220" Margin="30,0,0,3" Grid.RowSpan="2"/>
+        <TextBlock x:Name="FisrtName" 
+           TextWrapping="NoWrap" 
+           Text="Имя:" 
+           HorizontalAlignment="Left" 
+           VerticalAlignment="Center" 
+           Grid.Row="4" 
+           Grid.ColumnSpan="2" 
+            Foreground="Black"
+           Width="220" Margin="30,0,0,3"/>
+        <TextBlock x:Name="FatherName" 
+           TextWrapping="NoWrap" 
+           Text="Отчество:" 
+           HorizontalAlignment="Left" 
+           VerticalAlignment="Center" 
+           Grid.Row="6" 
+           Grid.ColumnSpan="2" 
+            Foreground="Black"
+           Width="220" Margin="30,0,0,3"/>
+        <TextBlock x:Name="Phone" 
+           TextWrapping="NoWrap" 
+           Text="Номер телефона:" 
+           HorizontalAlignment="Left" 
+           VerticalAlignment="Center" 
+           Grid.Row="8" 
+           Grid.ColumnSpan="2" 
+            Foreground="Black"
+           Width="220" Margin="30,0,0,3"/>
+        <TextBlock x:Name="Pasport" 
+           TextWrapping="NoWrap" 
+           Text="Паспорт:" 
+           HorizontalAlignment="Left" 
+           VerticalAlignment="Center" 
+           Grid.Row="10" 
+           Grid.ColumnSpan="2" 
+            Foreground="Black"
+           Width="220" Margin="30,0,0,3"/>
+
+        <TextBox x:Name="LastName1" 
+                 HorizontalAlignment="Left" 
+                 Margin="30,8,0,0" 
+                 Grid.Row="3" 
+                 TextWrapping="NoWrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="243" Height="20" 
+                 Grid.ColumnSpan="2"/>
+        <TextBox x:Name="FirstName1" 
+                 HorizontalAlignment="Left" 
+                 Margin="30,8,0,0" 
+                 Grid.Row="5" 
+                 TextWrapping="NoWrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="243" Height="20"
+                 Grid.ColumnSpan="2"/>
+        <TextBox x:Name="FatherName1" 
+                 HorizontalAlignment="Left" 
+                 Margin="30,8,0,0" 
+                 Grid.Row="7" 
+                 TextWrapping="NoWrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="243" Height="20" 
+                 Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Phone1" 
+                 HorizontalAlignment="Left" 
+                 Margin="30,8,0,0" 
+                 Grid.Row="9" 
+                 TextWrapping="NoWrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="243" Height="20" 
+                 Grid.ColumnSpan="2" 
+                 BorderBrush="Silver"
+                 LostKeyboardFocus="Phone1_LostKeyboardFocus"
+                 Foreground="Black"/>
+        <TextBox x:Name="Pasport1" 
+                 HorizontalAlignment="Left" 
+                 Margin="30,8,0,0" 
+                 Grid.Row="11" 
+                 TextWrapping="NoWrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="243" Height="20"
+                 Grid.ColumnSpan="2" LostKeyboardFocus="Pasport1_LostKeyboardFocus"/>
+
+
+    </Grid>
+</Window>

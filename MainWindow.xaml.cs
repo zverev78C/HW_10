@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HW_10
+namespace HW_10_1
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -23,6 +23,24 @@ namespace HW_10
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Событие выбор поля в ComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cb1_Choose_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (Choose.SelectedIndex)
+            {
+                case 0: { ViewModel.user = new Meneger(); break; }
+                case 1: { ViewModel.user = new Consultant(); break; }   // 
+                case 2: { Environment.Exit(0); break; }                 // выход из программы
+            }
+            WorkWindow workWindow = new WorkWindow();                 // создание экземпляра рабочего окна программы
+            workWindow.Show();                                        // открытие окна
+            Close();                                                  // закрытие текущего окна
         }
     }
 }

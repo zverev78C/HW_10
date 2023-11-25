@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_10_1(Bank)", "HW_10_1(Bank).csproj", "{2A52ACD5-90C1-48E4-B818-43DAC1D55859}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_10_1", "HW_10_1.csproj", "{2A52ACD5-90C1-48E4-B818-43DAC1D55859}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_10_2(InterFace)", "..\HW_10_2\HW_10_2(InterFace).csproj", "{E56A44DB-ECFC-4603-B9D6-507BF90B579A}"
 EndProject
