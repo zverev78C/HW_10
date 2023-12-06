@@ -33,7 +33,6 @@
         #region Абстрактные Методы  для последующего переопределения 
 
         public abstract Client GetClient(int i);
-        //public abstract Client NewClient(params string[] args);
         public abstract void ChangeAnyField(Client concretClient, int indexClient);
 
         #endregion

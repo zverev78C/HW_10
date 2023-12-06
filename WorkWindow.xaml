@@ -13,6 +13,9 @@
         Title="WorkWindow" 
         Height="800"
         Width="1152">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
     <Border x:Name="BorderMain"
         CornerRadius="10" 
         Background="#FF9EDFFB" 
@@ -148,7 +151,7 @@
                 <GroupBox x:Name="GroupContactInfoClient" 
                           Grid.Row="1" 
                           BorderThickness="0" 
-                          Header="Контактная Информация о Клиенте">
+                          Header="Информация о Счетах Клиента">
 
                 </GroupBox>
                 <GroupBox x:Name="GroupSystemInfoClient" 
@@ -303,43 +306,34 @@
             <GroupBox x:Name="ListGroup" 
                       Grid.Row="1" 
                       BorderThickness="0">
-                <ListView x:Name="ClientsList" 
+                <DataGrid x:Name="ClientsList" 
                           Background="#FF9EDFFB" 
                           BorderThickness="0" 
                           ItemsSource="{Binding BaseClients}" 
                           ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           SelectedItem="{Binding SelectedClient}" 
-                          SelectedIndex="{Binding SelectedIndex}">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Фамилия" Width="150">
-                                <GridViewColumn.HeaderContainerStyle>
-                                    <Style  TargetType="GridViewColumnHeader">
-                                        <Setter Property="Background" Value="#FF9EDFFB"/>
-                                    </Style>
-                                </GridViewColumn.HeaderContainerStyle>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Width="150" Text="{Binding LastName}" Foreground="Black"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Header="Телефон" Width="237">
-                                <GridViewColumn.HeaderContainerStyle>
-                                    <Style  TargetType="GridViewColumnHeader">
-                                        <Setter Property="Background" Value="#FF9EDFFB"/>
-                                    </Style>
-                                </GridViewColumn.HeaderContainerStyle>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock  Width="150" Text="{Binding Phone}" Foreground="Black"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                          SelectedIndex="{Binding SelectedIndex}"
+                          AutoGenerateColumns="False" RowHeaderWidth="0" 
+                          HorizontalContentAlignment="Stretch" 
+                          VerticalContentAlignment="Stretch" 
+                          CanUserAddRows="False" CanUserDeleteRows="False" 
+                          CanUserResizeRows="False" IsReadOnly="True" 
+                          RowBackground="Transparent" CanUserReorderColumns="False" CanUserResizeColumns="False" HeadersVisibility="Column">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#FF839BE4" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="BorderThickness" Value="1" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" Width="4*"/>
+                        <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}" Width="3*"/>
+                    </DataGrid.Columns>
+                   
+                </DataGrid>
             </GroupBox>
             <GroupBox x:Name="MottoGroup" 
                       Grid.Row="0" 
