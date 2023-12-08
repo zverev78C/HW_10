@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,7 +27,6 @@ namespace HW_10_1
         public WorkWindow()
         {
             vm = new ViewModel();
-            vm.Start();                 // Стартовый метод 
             InitializeComponent();
             DataContext = vm;           // данные для View
 
@@ -125,6 +125,23 @@ namespace HW_10_1
             }
         }
 
+        
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+
+        }
+
+        
+
+        private void TextChanged(object sender, TextCompositionEventArgs e)
+        {
+            string name = ((TextBox)sender).Name;
+            MessageBox.Show(name);
+            MessageBox.Show(((TextBox)sender).Text);
+        }
     }
 }
 

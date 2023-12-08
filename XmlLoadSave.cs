@@ -7,13 +7,13 @@ namespace HW_10_1
     /// <summary>
     /// Класс для сохранения данныхф XML файл
     /// </summary>
-    internal class LoadSave
+    internal class XmlLoadSave : ILoadSave
     {
         #region Методы сериализации  
         /// <summary>
         /// Метод сохранения списка клиентов в файл  
         /// </summary>
-        public static void SaveList()
+        public void Save()
         {
             List<Client> BasicListClients = Repository.OutPutList();
 
@@ -29,7 +29,7 @@ namespace HW_10_1
         /// <summary>
         /// Метод загрузки данных в базу из файла  
         /// </summary>
-        public static void LoadList()
+        public void Load()
         {
             List<Client> BasicListClients = new List<Client>();
             XmlSerializer SX = new XmlSerializer(typeof(List<Client>));

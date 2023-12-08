@@ -174,7 +174,9 @@
                  Grid.ColumnSpan="2" 
                  BorderBrush="Silver"
                  LostKeyboardFocus="Phone1_LostKeyboardFocus"
-                 Foreground="Black"/>
+                 Foreground="Black"
+                 PreviewTextInput="NumberValidationTextBox"
+                 ToolBar.OverflowMode="Always" />
         <TextBox x:Name="Pasport1" 
                  HorizontalAlignment="Left" 
                  Margin="30,8,0,0" 
@@ -183,7 +185,7 @@
                  Text="" 
                  VerticalAlignment="Top" 
                  Width="243" Height="20"
-                 Grid.ColumnSpan="2" LostKeyboardFocus="Pasport1_LostKeyboardFocus"/>
+                 Grid.ColumnSpan="2" LostKeyboardFocus="Pasport1_LostKeyboardFocus" PreviewTextInput="NumberValidationTextBox"/>
 
 
     </Grid>

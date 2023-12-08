@@ -60,7 +60,7 @@ namespace HW_10_1
         /// первый метод после выбора уровня доступа 
         /// </summary>
         /// <param name="accessLevel"></param>
-        public void Start()
+        public ViewModel()
         {
             amountClients = user.Start();   // команда загрузить базу данных в Репозиторий 
             GetBaseClients();               // заполняем базу краткой инфо о клиентах
@@ -89,10 +89,12 @@ namespace HW_10_1
             if (changeField == "Отчество") { SelectedClient.MiddelName = newValue; }
             if (changeField == "Телефон") { SelectedClient.Phone = newValue; BaseClients[SelectedIndex].Phone = newValue; }
             if (changeField == "Паспорт") { SelectedClient.Pasport = newValue; }
+
             SelectedClient.DateTimeLastChenging = DateTime.Now.ToString();
             SelectedClient.LastChenger = user.Name;   //берет значение поля класса 
             SelectedClient.LastChengedField = changeField;
             SelectedClient.LastChengedType = typeChenge;
+
             user.ChangeAnyField(SelectedClient, SelectedIndex);
             SaveClient();
         }

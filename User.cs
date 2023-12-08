@@ -3,6 +3,7 @@
     abstract class User : IUserInterface
     {
         protected Repository rep = new Repository(); // репозиторий 
+        ILoadSave LS = new XmlLoadSave();
 
         public virtual string Name { get => Name; }
 
@@ -12,7 +13,7 @@
         ///<returns>количество клиентов в списке</returns>
         public virtual int Start()
         {
-            LoadSave.LoadList();
+            LS.Load();
             int amountClients = rep.GetListCount();
             return amountClients;
         }
@@ -21,7 +22,7 @@
         /// </summary>
         public virtual void SaveClient()
         {
-            LoadSave.SaveList();
+            LS.Save();
         }
         public virtual Client NewClient(params string[] args)
         {
@@ -36,5 +37,7 @@
         public abstract void ChangeAnyField(Client concretClient, int indexClient);
 
         #endregion
+
+        public User() { }
     }
 }
