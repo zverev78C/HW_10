@@ -91,6 +91,7 @@ namespace HW_10_1
         private void TBx_SelectedClientPhone_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             FieldChanged("Телефон", TBx_SelectedClientPhone.Text, TBx_SelectedClientPhone);
+            MessageBox.Show("Хуяк, бля!!! gjnthz");
         }
         private void TBx_SelectedClientPasport_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
@@ -128,6 +129,11 @@ namespace HW_10_1
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
 
+        }
+
+        private void TBx_SelectedClientPhone_TextInput(object sender, TextCompositionEventArgs e)
+        {
+            MessageBox.Show("Хуяк, бля!!!");
         }
     }
 }
