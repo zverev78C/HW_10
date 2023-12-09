@@ -22,10 +22,11 @@ namespace HW_10_1
 
     public partial class WorkWindow : Window
     {
-        ViewModel vm = new ViewModel();   // экземпляр класса ViewVodel
+        ViewModel vm;   // экземпляр класса ViewVodel
 
         public WorkWindow()
         {
+            vm = new ViewModel();
             InitializeComponent();
             DataContext = vm;           // данные для View
 
@@ -49,7 +50,6 @@ namespace HW_10_1
         /// <param name="e"></param>
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.BaseClients.Clear();    // очстка списка клиентов во ViewVodel 
             MainWindow MW = new MainWindow(); // Создание экземпляра окна приветсвия 
             MW.Show();                        // открытие окна приветсвия 
             Close();                          // закрытие текущего окна 

@@ -53,9 +53,8 @@ namespace HW_10_1
         /// <param name="newClient"></param>
         public void AddClient(Client newClient)
         {
-            newClient.ID = BasicListClients.Count ==0 ? 1:  BasicListClients[BasicListClients.Count-1].ID + 1;
-            MessageBox.Show(newClient.ID.ToString());
-            BasicListClients.Add(newClient);
+            newClient.ID = BasicListClients.Count ==0 ? 1:  BasicListClients[BasicListClients.Count-1].ID + 1; // присвоение ID новому клиенту 
+            BasicListClients.Add(newClient); // добавление нового клиента в основную базу данных  
         }
 
         /// <summary>
@@ -76,7 +75,7 @@ namespace HW_10_1
 
         internal void ChangeClient(Client concretClient, int indexClient)
         {
-            BasicListClients[indexClient] = concretClient;
+           // BasicListClients[indexClient] = concretClient;
 
 
             for (int i = 0; i < BasicListClients.Count; i++)
