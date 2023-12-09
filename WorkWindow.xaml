@@ -321,7 +321,7 @@
                           VerticalContentAlignment="Stretch" 
                           CanUserAddRows="False" CanUserDeleteRows="False" 
                           CanUserResizeRows="False" IsReadOnly="True" 
-                          RowBackground="Transparent" CanUserReorderColumns="False" CanUserResizeColumns="False" HeadersVisibility="Column">
+                          RowBackground="Transparent" CanUserReorderColumns="False" CanUserResizeColumns="False" HeadersVisibility="Column" GridLinesVisibility="Vertical" >
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
                             <Setter Property="Background" Value="#FF839BE4" />

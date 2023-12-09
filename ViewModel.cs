@@ -62,8 +62,11 @@ namespace HW_10_1
         /// <param name="accessLevel"></param>
         public ViewModel()
         {
-            amountClients = user.Start();   // команда загрузить базу данных в Репозиторий 
-            GetBaseClients();               // заполняем базу краткой инфо о клиентах
+            if (amountClients == 0)
+            {
+                amountClients = user.Start();   // команда загрузить базу данных в Репозиторий 
+                GetBaseClients();               // заполняем базу краткой инфо о клиентах
+            }
         }
         /// <summary>
         /// Метод добавления нового клиента в базу
