@@ -11,31 +11,14 @@ namespace HW_10_1
         /// </summary>
         private static int amountClients;
         /// <summary>
-        /// Коллекция клиентов для просмотра    
-        /// </summary>
-        private static ObservableCollection<Client> clients = new ObservableCollection<Client>();
-        /// <summary>
         /// свойство к которому биндится вьюшка для передачи индекса
         /// </summary>
         private static int selectedIndex;
-        /// <summary>
-        /// метод запроса клиента для отображения во View
-        /// </summary>
-        /// <param name="i"></param>
-        /// <summary>
-        /// Переменная для отслеживания выделения клиента в списке ListView 
-        /// </summary>
-        private Client _selectedClient;
-
 
         /// <summary>
         /// Коллекция клиентов для просмотра   
         /// </summary>
-        public static ObservableCollection<Client> BaseClients
-        {
-            get { return clients; }
-            set { clients = value; }
-        }
+        public static ObservableCollection<Client> BaseClients { get ;  set ; } = new ObservableCollection<Client>();
         /// <summary>
         /// индекс клиента в коллекции короткой инфо
         /// </summary>
@@ -47,12 +30,7 @@ namespace HW_10_1
         /// <summary>
         /// Выбраный в окне клиент 
         /// </summary>
-        public Client SelectedClient
-        {
-            get { return _selectedClient; }
-            set { _selectedClient = value; }
-        }
-
+        public Client SelectedClient { get; set; }
 
         #region Внешние Методы ViewModel 
 

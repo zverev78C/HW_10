@@ -99,7 +99,6 @@ namespace HW_10_1
 
         #endregion
 
-
         private void FieldChanged(string nameField, string newValue, System.Windows.Controls.TextBox name)
         {
             string result = ViewModel.InsertNumber(newValue);
@@ -124,22 +123,11 @@ namespace HW_10_1
             }
         }
 
-        
-
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
 
-        }
-
-        
-
-        private void TextChanged(object sender, TextCompositionEventArgs e)
-        {
-            string name = ((TextBox)sender).Name;
-            MessageBox.Show(name);
-            MessageBox.Show(((TextBox)sender).Text);
         }
     }
 }
