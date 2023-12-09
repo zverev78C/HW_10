@@ -22,11 +22,10 @@ namespace HW_10_1
 
     public partial class WorkWindow : Window
     {
-        ViewModel vm;   // экземпляр класса ViewVodel
+        ViewModel vm = new ViewModel();   // экземпляр класса ViewVodel
 
         public WorkWindow()
         {
-            vm = new ViewModel();
             InitializeComponent();
             DataContext = vm;           // данные для View
 

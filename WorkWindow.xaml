@@ -132,7 +132,7 @@
                                  Background="#FF9EDFFB"
                                  BorderThickness="1"
                                  BorderBrush="#FF1E6582" 
-                                 Text="{Binding Phone}" 
+                                 Text="{Binding Path=Phone, StringFormat={}{0:(###)###-####}}" 
                                  PreviewTextInput="NumberValidationTextBox" 
                                  HorizontalContentAlignment="Center" 
                                  VerticalContentAlignment="Center" LostKeyboardFocus="TBx_SelectedClientPhone_LostKeyboardFocus"  >

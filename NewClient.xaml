@@ -7,7 +7,7 @@
         mc:Ignorable="d"
        
         
-         ResizeMode="NoResize"   
+        ResizeMode="NoResize"   
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None"
         AllowsTransparency="true"
@@ -15,8 +15,6 @@
         Title="NewClient" Height="441" Width="302" Foreground="{x:Null}" >
 
     <Grid>
-
-
         <Grid.RowDefinitions>
             <RowDefinition Height="50*"/>
             <RowDefinition Height="30*"/>
@@ -185,8 +183,9 @@
                  Text="" 
                  VerticalAlignment="Top" 
                  Width="243" Height="20"
-                 Grid.ColumnSpan="2" LostKeyboardFocus="Pasport1_LostKeyboardFocus" PreviewTextInput="NumberValidationTextBox"/>
-
+                 Grid.ColumnSpan="2" 
+                 LostKeyboardFocus="Pasport1_LostKeyboardFocus" 
+                 PreviewTextInput="NumberValidationTextBox"/>
 
     </Grid>
 </Window>

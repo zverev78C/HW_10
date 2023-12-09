@@ -27,7 +27,6 @@ namespace HW_10_1
         public override Client NewClient(params string[] args)
         {
             Client newClient = new Client();
-
             newClient.LastName = args[0];
             newClient.FirstName = args[1];
             newClient.MiddelName = args[2];

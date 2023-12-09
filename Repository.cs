@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows;
 
 namespace HW_10_1
 {
@@ -32,6 +33,7 @@ namespace HW_10_1
         {
             Client client = new Client   // Создается новый экземпляр клиента что бы консультант не менял поля под себя в основной базе данных 
             {
+                ID = BasicListClients[i].ID,
                 LastName = BasicListClients[i].LastName,
                 FirstName = BasicListClients[i].FirstName,
                 MiddelName = BasicListClients[i].MiddelName,
@@ -51,6 +53,8 @@ namespace HW_10_1
         /// <param name="newClient"></param>
         public void AddClient(Client newClient)
         {
+            newClient.ID = BasicListClients.Count ==0 ? 1:  BasicListClients[BasicListClients.Count-1].ID + 1;
+            MessageBox.Show(newClient.ID.ToString());
             BasicListClients.Add(newClient);
         }
 
@@ -73,6 +77,8 @@ namespace HW_10_1
         internal void ChangeClient(Client concretClient, int indexClient)
         {
             BasicListClients[indexClient] = concretClient;
+
+
             for (int i = 0; i < BasicListClients.Count; i++)
             {
                 if (concretClient.ID == BasicListClients[i].ID)
