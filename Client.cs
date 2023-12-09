@@ -7,6 +7,10 @@ namespace HW_10_1
         #region поля свойства  
 
         /// <summary>
+        /// уникальный номер клиента 
+        /// </summary>
+        private int _id;
+        /// <summary>
         /// Фамилия  
         /// </summary>
         private string lastName;
@@ -44,7 +48,10 @@ namespace HW_10_1
         private string lastChengedType;
 
 
-
+        /// <summary>
+        /// уникальный номер клиента  
+        /// </summary>
+        public int ID {  get{ return this._id; } set { this._id = value; } }
         /// <summary>
         /// Фамилия  
         /// </summary>
@@ -141,8 +148,9 @@ namespace HW_10_1
         /// Конструктор создания нового клиента  
         /// </summary>
         /// <param name="args">5 аргументов (Фамиоия, имя, Отчество, телефон, паспорт)</param>
-        public Client(params string[] args)
+        public Client(int id, params string[] args)
         {
+            ID = id;
             LastName = args[0];
             FirstName = args[1];
             MiddelName = args[2];

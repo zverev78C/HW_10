@@ -208,7 +208,7 @@
                         <TextBlock x:Name="TBx_SelectedClientDataTimeLastChanging"  
                                    Grid.Row="1" 
                                    Grid.Column="3"
-                                   Text="{Binding DateTimeLastChenging }" 
+                                   Text="{Binding Path=DateTimeLastChenging}" 
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center" 
                                    FontSize="14"/>

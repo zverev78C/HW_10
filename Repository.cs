@@ -73,6 +73,14 @@ namespace HW_10_1
         internal void ChangeClient(Client concretClient, int indexClient)
         {
             BasicListClients[indexClient] = concretClient;
+            for (int i = 0; i < BasicListClients.Count; i++)
+            {
+                if (concretClient.ID == BasicListClients[i].ID)
+                {
+                    BasicListClients[i] = concretClient;
+                    break;
+                }
+            }
         }
 
         #endregion
