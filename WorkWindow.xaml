@@ -332,6 +332,15 @@
                             <Setter Property="BorderThickness" Value="1" />
                             <Setter Property="FontWeight" Value="Bold" />
                         </Style>
+                        <Style TargetType="{ x:Type DataGridCell }">
+                            <Style.Triggers >
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="Background" Value="#FF839BE4" />
+                                    <Setter Property="BorderThickness" Value="0" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
                     </DataGrid.Resources>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" Width="4*"/>
