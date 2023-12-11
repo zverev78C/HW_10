@@ -23,7 +23,6 @@ namespace HW_10_1
         public MainWindow()
         {
             InitializeComponent();
-           // DataContext = new ViewModel();
         }
 
 

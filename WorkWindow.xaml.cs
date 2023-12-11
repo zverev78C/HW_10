@@ -30,17 +30,17 @@ namespace HW_10_1
             InitializeComponent();
             DataContext = vm;           // данные для View
 
-            //if (i == 2)   // сокрытие кнопок от консультанта 
-            //{
-            //    Button_Add.Visibility = Visibility.Hidden;              // кнопка добавить нового клиента
-            //    Button_Save.Visibility = Visibility.Collapsed;          // кнопка сохранить изменения
-            //    GroupSystemInfoClient.Visibility = Visibility.Hidden;   // скрыта область системных данных о клиенте
-            //    GroupContactInfoClient.Visibility = Visibility.Hidden;  // скрыта область пока пустых данных о клиенте
-            //    TBx_SelectedClientLastName.IsReadOnly = true;           // Поле Фамилия достуна только для чтения 
-            //    TBx_SelectedClientFirstName.IsReadOnly = true;          // Поле Имя достуна только для чтения 
-            //    TBx_SelectedClientMiddelName.IsReadOnly = true;         // Поле Отчество достуна только для чтения 
-            //    TBx_SelectedClientPasport.IsReadOnly = true;            // Поле Паспорт достуна только для чтения 
-            //}
+            if (ViewModel._user.GetType() == typeof(Consultant))   // сокрытие кнопок от консультанта 
+            {
+                Button_Add.Visibility = Visibility.Hidden;              // кнопка добавить нового клиента
+                Button_Save.Visibility = Visibility.Collapsed;          // кнопка сохранить изменения
+                GroupSystemInfoClient.Visibility = Visibility.Hidden;   // скрыта область системных данных о клиенте
+                GroupContactInfoClient.Visibility = Visibility.Hidden;  // скрыта область пока пустых данных о клиенте
+                TBx_SelectedClientLastName.IsReadOnly = true;           // Поле Фамилия достуна только для чтения 
+                TBx_SelectedClientFirstName.IsReadOnly = true;          // Поле Имя достуна только для чтения 
+                TBx_SelectedClientMiddelName.IsReadOnly = true;         // Поле Отчество достуна только для чтения 
+                TBx_SelectedClientPasport.IsReadOnly = true;            // Поле Паспорт достуна только для чтения 
+            }
         }
 
         /// <summary>

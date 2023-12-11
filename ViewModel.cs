@@ -11,43 +11,36 @@ namespace HW_10_1
         /// <summary>
         /// устанавливает уровень доступа к данным через класс пользователя
         /// </summary>
-        static IUserInterface _user;
+        public static IUserInterface _user;
         /// <summary>
         /// устанваливает сериализатор для наполнения модели 
         /// </summary>
         static ILoadSave _serialType;
+        /// <summary>
+        /// метод определяющий уровень доступа и сериализатор, 
+        /// так же загружает основную и пробрасывает в отслеживаемую коллекции данные 
+        /// </summary>
+        /// <param name="value"></param>
         public static void UserSetup(int value)
         {           
             _user = ProgrammVlidator.GetType(value);  // запрос экземпляра класса для _user. 
             _serialType = ProgrammVlidator.GetSerial(0); // запрос на класс сериализатор сейчас ноль потому что пока реализован только XML
 
-            _user.Load(_serialType);
-            User.LoadBase();
+            _user.Load(_serialType); // определяется сериализатор и загружается основная коллекция
+            User.LoadBase(); // привязывается отслеживаемая коллекция
         }
-
-        public ViewModel()
-        {
-
-        }
-
         /// <summary>
         /// Коллекция клиентов для просмотра   
         /// </summary>
         public ReadOnlyObservableCollection<Client> VmClients { get; set; } = User.MyPublicClients;
 
 
-        /// <summary>
-        /// переменная количества клиентов списке 
-        /// </summary>
-        private static int amountClients;
-        /// <summary>
-        /// индекс клиента в коллекции короткой инфо
-        /// </summary>
-       public int SelectedIndex { get; set; } //{ selectedIndex = value; GetSelectedClient(value); } // ViewVodel узнает о View 
 
 
-        
-        
+
+
+       
+              
         /// <summary>
         /// Выбраный в окне клиент 
         /// </summary>
@@ -73,8 +66,6 @@ namespace HW_10_1
         public void NewClientShowWindow(params string[] args)
         {
             Client concretClient = _user.NewClient(args);
-            amountClients++;
-            //BaseClients.Add(concretClient);
             SaveClient();
         }
         /// <summary>
@@ -96,7 +87,7 @@ namespace HW_10_1
             SelectedClient.LastChengedField = changeField;
             SelectedClient.LastChengedType = typeChenge;
 
-            _user.ChangeAnyField(SelectedClient, SelectedIndex);
+           // _user.ChangeAnyField(SelectedClient);
             SaveClient();
         }
 
