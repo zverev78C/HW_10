@@ -1,43 +1,30 @@
-﻿namespace HW_10_1
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Configuration;
+
+namespace HW_10_1
 {
-    abstract class User : IUserInterface
+
+    /// <summary>
+    /// Базовый класс для менеджера и консультанта 
+    /// </summary>
+    abstract class User 
     {
-        protected Repository rep = new Repository(); // репозиторий 
-        ILoadSave LS = new XmlLoadSave();
+        public ObservableCollection<Client> Сlients { get; set; } = new ObservableCollection<Client>();
+
 
         public virtual string Name { get => Name; }
 
-        ///<summary>
-        ///   метод запуска приложения  
-        ///</summary>
-        ///<returns>количество клиентов в списке</returns>
-        public virtual int Start()
-        {
-            LS.Load();
-            int amountClients = rep.GetListCount();
-            return amountClients;
-        }
         /// <summary>
-        /// Метод сохранения списка клиентов 
+        /// Метод загрузки данных через интерфейс IloaddSave который определяет как и откуда будут загружены данные  
         /// </summary>
-        public virtual void SaveClient()
+        /// <param name="load"></param>
+        /// <returns></returns>
+        public  void Load(ILoadSave load)
         {
-            LS.Save();
-        }
-        public virtual Client NewClient(params string[] args)
-        {
-            Client newClient = new Client();
-            return newClient;
+            Сlients = load.Load();
         }
 
 
-        #region Абстрактные Методы  для последующего переопределения 
-
-        public abstract Client GetClient(int i);
-        public abstract void ChangeAnyField(Client concretClient, int indexClient);
-
-        #endregion
-
-        public User() { }
     }
 }

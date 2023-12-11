@@ -1,10 +1,28 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace HW_10_1
 {
-    public class Client
+    /// <summary>
+    /// Класс лписывающий клиента (Model) 
+    /// </summary>
+    public class Client :INotifyPropertyChanged
     {
-        #region поля свойства  
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Метод, который скажет ViewModel, что нужно передать View новые данные  
+        /// </summary>
+        /// <param name="prop"></param>
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
+
+        #region Поля 
 
         /// <summary>
         /// уникальный номер клиента 
@@ -47,6 +65,9 @@ namespace HW_10_1
         /// </summary>
         private string lastChengedType;
 
+        #endregion
+
+        #region Свойства 
 
         /// <summary>
         /// уникальный номер клиента  
@@ -58,7 +79,11 @@ namespace HW_10_1
         public string LastName
         {
             get { return this.lastName; }
-            set { this.lastName = value; }
+            set 
+            { 
+                this.lastName = value;
+                OnPropertyChanged(nameof(this.LastName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+            }
         }
         /// <summary>
         /// Имя     
@@ -66,7 +91,11 @@ namespace HW_10_1
         public string FirstName
         {
             get { return this.firstName; }
-            set { this.firstName = value; }
+            set 
+            {
+                this.firstName = value;
+                OnPropertyChanged(nameof(this.FirstName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+            }
         }
         /// <summary>
         /// Отчество    
@@ -74,7 +103,11 @@ namespace HW_10_1
         public string MiddelName
         {
             get { return this.middelName; }
-            set { this.middelName = value; }
+            set
+            {
+                this.middelName = value;
+                OnPropertyChanged(nameof(this.MiddelName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели}
+            }
         }
         /// <summary>
         /// Номер телефона  
@@ -82,7 +115,11 @@ namespace HW_10_1
         public string Phone
         {
             get { return phone; }
-            set { phone = value; }
+            set 
+            {
+                phone = value;
+                OnPropertyChanged(nameof(this.Phone)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+            }
         }
         /// <summary>
         /// Номер паспорта  
@@ -90,7 +127,11 @@ namespace HW_10_1
         public string Pasport
         {
             get { return pasport; }
-            set { pasport = value; }
+            set 
+            {
+                pasport = value;
+                OnPropertyChanged(nameof(this.Pasport)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+            }
         }
         /// <summary>
         /// Время последнего изменения  
@@ -137,13 +178,6 @@ namespace HW_10_1
         /// </summary>
         public Client() { }
 
-        public Client(string lastName, string phone)
-        {
-            LastName = lastName;
-            Phone = phone;
-        }
-
-
         /// <summary>
         /// Конструктор создания нового клиента  
         /// </summary>
@@ -161,7 +195,6 @@ namespace HW_10_1
             LastChengedField = args[7];
             LastChengedType = args[8];
         }
-
 
         #endregion
 

@@ -19,10 +19,11 @@ namespace HW_10_1
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {          
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModel();
         }
 
         /// <summary>
@@ -31,16 +32,10 @@ namespace HW_10_1
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void cb1_Choose_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            switch (Choose.SelectedIndex)
-            {
-                case 0: { ViewModel.user = new Meneger(); break; }
-                case 1: { ViewModel.user = new Consultant(); break; }   // 
-                case 2: { Environment.Exit(0); break; }                 // выход из программы
-            }
-            WorkWindow workWindow = new WorkWindow();                 // создание экземпляра рабочего окна программы
-            workWindow.Show();                                        // открытие окна
-            Close();                                                  // закрытие текущего окна
+        {           
+            WorkWindow workWindow = new WorkWindow();
+            workWindow.Show(); // открытие окна
+            Close();
         }
     }
 }

@@ -13,23 +13,21 @@ namespace HW_10_1
         /// <summary>
         /// Метод сохранения списка клиентов в файл  
         /// </summary>
-        public void Save()
+        public void Save(List<Client> clients)
         {
-            List<Client> BasicListClients = Repository.OutPutList();
-
-
+            
             XmlSerializer SX = new XmlSerializer(typeof(List<Client>));
             using (StreamWriter sw = new StreamWriter("BackUp.xml", false))
             {
                 {
-                    SX.Serialize(sw, BasicListClients);
+                    SX.Serialize(sw, clients);
                 }
             }
         }
         /// <summary>
         /// Метод загрузки данных в базу из файла  
         /// </summary>
-        public void Load()
+        public List<Client> Load()
         {
             List<Client> BasicListClients = new List<Client>();
             XmlSerializer SX = new XmlSerializer(typeof(List<Client>));
@@ -40,7 +38,7 @@ namespace HW_10_1
                     BasicListClients = SX.Deserialize(sr) as List<Client>;
                 }
             }
-            Repository.InPutList(BasicListClients);
+            return BasicListClients;
         }
         #endregion
     }

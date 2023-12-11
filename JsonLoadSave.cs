@@ -8,12 +8,12 @@ namespace HW_10_1
 {
     internal class JsonLoadSave : ILoadSave
     {
-        public void Load()
+        public List<Client> Load()
         {
             throw new NotImplementedException();
         }
 
-        public void Save()
+        public void Save(List<Client> clients)
         {
             throw new NotImplementedException();
         }

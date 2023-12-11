@@ -12,7 +12,9 @@
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None">
-    
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
     <Grid >
 
         <Border CornerRadius="10" 
@@ -32,6 +34,7 @@
                    Width="318"
                    Foreground="#FF46034A"/>
         <ComboBox x:Name="Choose" 
+                  DataContext="{Binding Path=authorizationСhoice}"
                   SelectionChanged="cb1_Choose_SelectionChanged"
                   HorizontalAlignment="Center" 
                   Margin="0,203,0,0" 

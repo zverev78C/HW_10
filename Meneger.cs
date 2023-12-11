@@ -1,30 +1,73 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 
 namespace HW_10_1
 {
     /// <summary>
     /// Менеджер как класс   
     /// </summary>
-    class Meneger : User
+    class Meneger : User, IUserInterface
     {
-        public override string Name { get => "Менеджер"; }
+        /// <summary>
+        /// Имя класса на кирилице для сохранения в логи 
+        /// </summary>
+        public override string Name { get => "Менеджер"; } 
+
+        
+
+
+
+
+
+
+        private static int CountClients;
+
+        public Meneger() { rep.CountsClientHandler = GetCount; }
+        //public Meneger(IRepos repos) 
+        //{
+        //   // rep = repos;
+        //    rep.CountsClientHandler = GetCount;
+        //}
+        
+
+
+        public static void GetCount(int count)
+        {
+            CountClients = count;
+        }
+
 
         #region Методы для работы с репозиторием 
+
+        public ObservableCollection<Client> GetAllClients()
+        {
+            ObservableCollection<Client> tList = new ObservableCollection<Client>();
+            for (int i = 0; i < CountClients; i++)
+            {
+                Client tClient = new Client();
+                tClient = rep.GetClient();
+                tList.Add(tClient);
+            }
+            return tList;
+        }
+
+
+
 
         /// <summary>
         /// метод возвращающий клиента согласно допуска для View
         /// </summary>
         /// <param name="i">индекс клиента</param>
         /// <returns></returns>
-        public override Client GetClient(int i)
+        public  Client GetClient(int i)
         {
-            return rep.GetClientInfo(i);
+            throw new NotImplementedException();
         }
         /// <summary>
         /// метод создания нового клиента для менеджера  
         /// </summary>
         /// <param name="args"></param>
-        public override Client NewClient(params string[] args)
+        public  Client NewClient(params string[] args)
         {
             Client newClient = new Client();
             newClient.LastName = args[0];
@@ -37,14 +80,28 @@ namespace HW_10_1
             newClient.LastChengedField = "Все обязательные поля";
             newClient.LastChengedType = "Создание нового клиента";
 
-            rep.AddClient(newClient); // одновременно с возвратом клиента в отслеживаемую коллекцию добавляем в основную для сохранения
+           // rep.AddClient(newClient); // одновременно с возвратом клиента в отслеживаемую коллекцию добавляем в основную для сохранения
             return newClient;
         }
 
-        public override void ChangeAnyField(Client concretClient, int indexClient)
+        public  void ChangeAnyField(Client concretClient, int indexClient)
         {
-            rep.ChangeClient(concretClient, indexClient);
+            //rep.ChangeClient(concretClient, indexClient);
         }
+
+        public int Start()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveClient()
+        {
+            throw new NotImplementedException();
+        }
+
+        
+
+
 
         #endregion
 

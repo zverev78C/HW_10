@@ -81,6 +81,7 @@
     <Compile Include="NewClient.xaml.cs">
       <DependentUpon>NewClient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProgrammVlidator.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="User.cs" />
     <Compile Include="ViewModel.cs" />
@@ -131,6 +132,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

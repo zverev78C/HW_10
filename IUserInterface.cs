@@ -1,4 +1,6 @@
-﻿namespace HW_10_1
+﻿using System.Collections.ObjectModel;
+
+namespace HW_10_1
 {
     internal interface IUserInterface
     {
@@ -6,17 +8,21 @@
         /// Переменная задающая имя класса для сохранения имени класса в кирилице
         /// </summary>
         string Name { get; }
+
+
         /// <summary>
-        /// Метод запуска рабочего окна 
+        /// метод создающий коллекцию клиентов для ViewModel 
         /// </summary>
-        /// <returns>Количество клиентов в главной базе</returns>
-        int Start();
+        /// <returns>коллекция клиентов</returns>
+        ObservableCollection<Client> GetAllClients();
+
+        Client NewClient(params string[] args);
 
         void SaveClient();
 
         Client GetClient(int i);
 
-        //Client NewClient(params string[] args);
+       
         /// <summary>
         /// Метод частичного изменения клиента 
         /// </summary>

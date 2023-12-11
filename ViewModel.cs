@@ -5,32 +5,53 @@ namespace HW_10_1
 {
     class ViewModel
     {
-        public static User user;
+
+        IUserInterface user;
+
+        public int authorizationСhoice 
+        {            
+            set
+            {
+                if (value == 2) { Environment.Exit(0); } // выход из приложения
+                user = ProgrammVlidator.GetType(value);
+            } 
+        }   
+
+
         /// <summary>
         /// переменная количества клиентов списке 
         /// </summary>
         private static int amountClients;
         /// <summary>
-        /// свойство к которому биндится вьюшка для передачи индекса
+        /// индекс клиента в коллекции короткой инфо
         /// </summary>
-        private static int selectedIndex;
+        public int SelectedIndex { get; set; } //{ selectedIndex = value; GetSelectedClient(value); } // ViewVodel узнает о View 
+        
 
         /// <summary>
         /// Коллекция клиентов для просмотра   
         /// </summary>
         public static ObservableCollection<Client> BaseClients { get ;  set ; } = new ObservableCollection<Client>();
         /// <summary>
-        /// индекс клиента в коллекции короткой инфо
-        /// </summary>
-        public int SelectedIndex
-        {
-            get { return selectedIndex; }
-            set { selectedIndex = value; GetSelectedClient(value); } // ViewVodel узнает о View 
-        }
-        /// <summary>
         /// Выбраный в окне клиент 
         /// </summary>
         public Client SelectedClient { get; set; }
+
+
+        #region Конструкторы 
+
+        public ViewModel()
+        {
+            user = ProgrammVlidator.GetUser();
+            if (BaseClients.Count == 0)  // если список клиентов пуст пробуем загрузить список 
+            {
+                BaseClients = user.GetAllClients();
+            }
+        }
+
+        
+
+        #endregion
 
         #region Внешние Методы ViewModel 
 
@@ -38,14 +59,6 @@ namespace HW_10_1
         /// первый метод после выбора уровня доступа 
         /// </summary>
         /// <param name="accessLevel"></param>
-        public ViewModel()
-        {
-            if (amountClients == 0)  
-            {
-                amountClients = user.Start();   // команда загрузить базу данных в Репозиторий 
-                GetBaseClients();               // заполняем базу краткой инфо о клиентах
-            }
-        }
         /// <summary>
         /// Метод добавления нового клиента в базу
         /// </summary>
@@ -115,36 +128,7 @@ namespace HW_10_1
 
         #region Внутренние методы ViewVodel 
 
-        /// <summary>
-        /// Внутренний метод загружающий отслеживаемыю коллексцию 
-        /// </summary>
-        private void GetBaseClients()
-        {
-            for (int i = 0; i < amountClients; i++)
-            {
-                BaseClients.Add(user.GetClient(i));
-            }
-        }
-        /// <summary>
-        /// Метод обращается к классу согласно допуска для получения клиента 
-        /// </summary>
-        /// <param name="i"></param>
-        /// <returns></returns>
-        private Client GetClient(int i)
-        {
-            Client client = user.GetClient(i);
 
-            return client;
-        }
-        /// <summary>
-        /// Метод заполняет переменную SelectedClient  
-        /// </summary>
-        /// <param name="i"></param>
-        private void GetSelectedClient(int i)
-        {
-            if (SelectedIndex != -1)
-            { SelectedClient = GetClient(i); }
-        }
 
         #endregion
     }

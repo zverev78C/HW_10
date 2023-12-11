@@ -3,15 +3,39 @@ using System.Windows;
 
 namespace HW_10_1
 {
+
+    delegate void CountsClient (int count); 
+
     /// <summary>
     /// Класс который знает о базе данных и умеет к ней обращаться
     /// </summary>
-    class Repository
+    class Repository : IRepos
     {
         /// <summary>
         /// Список клиентов общий
         /// </summary>
         private static List<Client> BasicListClients { get; set; }
+        public  CountsClient CountsClientHandler { get; set; }
+        
+        public Repository ()
+        {
+            BasicListClients =  Load(new XmlLoadSave());
+            
+        }
+
+
+        
+        public void Save (ILoadSave save)
+        {
+            save.Save(BasicListClients);
+        }
+        public Client GetClient()
+        {
+            CountsClientHandler(BasicListClients.Count);  // выдает исключение отсутствие экземпляра  
+            throw new System.NotImplementedException();
+        }
+
+
 
         #region Методы для приема и выдачи инфо (инкапсуляция)
 
@@ -57,21 +81,6 @@ namespace HW_10_1
             BasicListClients.Add(newClient); // добавление нового клиента в основную базу данных  
         }
 
-        /// <summary>
-        /// Метод возвращает список клиентов 
-        /// </summary>
-        public static List<Client> OutPutList()
-        {
-            return BasicListClients;
-        }
-
-        /// <summary>
-        /// Метод принимает список клиентов и загружает его в базу клиентов 
-        /// </summary>
-        public static void InPutList(List<Client> loadList)
-        {
-            BasicListClients = loadList;
-        }
 
         internal void ChangeClient(Client concretClient, int indexClient)
         {
@@ -87,6 +96,8 @@ namespace HW_10_1
                 }
             }
         }
+
+        
 
         #endregion
 
