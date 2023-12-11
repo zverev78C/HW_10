@@ -12,38 +12,19 @@ namespace HW_10_1
         /// Имя класса на кирилице для сохранения в логи 
         /// </summary>
         public override string Name { get => "Менеджер"; }
-
+        /// <summary>
+        /// метод загрузки списка клиентов в коллекцию 
+        /// </summary>
+        /// <param name="load"></param>
         public void Load(ILoadSave load)
         {
             Сlients = load.Load();
-        }
-
-
-
-
-
-
-
-
-
-
-        #region Методы для работы с репозиторием 
-
-
-        /// <summary>
-        /// метод возвращающий клиента согласно допуска для View
-        /// </summary>
-        /// <param name="i">индекс клиента</param>
-        /// <returns></returns>
-        public  Client GetClient(int i)
-        {
-            throw new NotImplementedException();
         }
         /// <summary>
         /// метод создания нового клиента для менеджера  
         /// </summary>
         /// <param name="args"></param>
-        public  Client NewClient(params string[] args)
+        public  void NewClient(params string[] args)
         {
             Client newClient = new Client();
             newClient.LastName = args[0];
@@ -56,9 +37,14 @@ namespace HW_10_1
             newClient.LastChengedField = "Все обязательные поля";
             newClient.LastChengedType = "Создание нового клиента";
 
-           // rep.AddClient(newClient); // одновременно с возвратом клиента в отслеживаемую коллекцию добавляем в основную для сохранения
-            return newClient;
+            Сlients.Add(newClient);
+            
         }
+
+
+
+
+
 
         public  void ChangeAnyField(Client concretClient, int indexClient)
         {
@@ -75,11 +61,19 @@ namespace HW_10_1
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// метод возвращающий клиента согласно допуска для View
+        /// </summary>
+        /// <param name="i">индекс клиента</param>
+        /// <returns></returns>
+        public Client GetClient(int i)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
         
-
-
-
-        #endregion
 
 
     }

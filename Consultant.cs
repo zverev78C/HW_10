@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace HW_10_1
 {
@@ -54,9 +55,9 @@ namespace HW_10_1
             throw new System.NotImplementedException();
         }
 
-        public Client NewClient(params string[] args)
+        public void NewClient(params string[] args)
         {
-            throw new System.NotImplementedException();
+            MessageBox.Show("У вас нет права создавать нового клиента");
         }
 
         public void SaveClient()

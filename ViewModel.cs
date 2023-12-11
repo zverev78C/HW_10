@@ -34,24 +34,10 @@ namespace HW_10_1
         /// </summary>
         public ReadOnlyObservableCollection<Client> VmClients { get; set; } = User.MyPublicClients;
 
-
-
-
-
-
-       
-              
         /// <summary>
         /// Выбраный в окне клиент 
         /// </summary>
         public Client SelectedClient { get; set; }
-
-
-        #region Конструкторы 
-
-
-
-        #endregion
 
         #region Внешние Методы ViewModel 
 
@@ -65,8 +51,8 @@ namespace HW_10_1
         /// <param name="args"></param>
         public void NewClientShowWindow(params string[] args)
         {
-            Client concretClient = _user.NewClient(args);
-            SaveClient();
+           _user.NewClient(args);
+            
         }
         /// <summary>
         /// Метод добавления системных полей в клиента

@@ -11,14 +11,13 @@ namespace HW_10_1
 
         void Load(ILoadSave load);
 
+        void NewClient(params string[] args);
 
 
 
 
 
 
-
-        Client NewClient(params string[] args);
 
         void SaveClient();
 
