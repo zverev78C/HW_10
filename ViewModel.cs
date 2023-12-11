@@ -39,12 +39,6 @@ namespace HW_10_1
         /// </summary>
         public Client SelectedClient { get; set; }
 
-        #region Внешние Методы ViewModel 
-
-        /// <summary>
-        /// первый метод после выбора уровня доступа 
-        /// </summary>
-        /// <param name="accessLevel"></param>
         /// <summary>
         /// Метод добавления нового клиента в базу
         /// </summary>
@@ -54,6 +48,13 @@ namespace HW_10_1
            _user.NewClient(args);
             
         }
+
+
+
+
+
+
+
         /// <summary>
         /// Метод добавления системных полей в клиента
         /// </summary>
@@ -74,13 +75,9 @@ namespace HW_10_1
             SelectedClient.LastChengedType = typeChenge;
 
            // _user.ChangeAnyField(SelectedClient);
-            SaveClient();
+            
         }
 
-        internal void SaveClient()
-        {
-            _user.SaveClient();
-        }
 
         /// <summary>
         /// метод контроля вводимых данных для номера телефона или паспорта  
@@ -107,13 +104,6 @@ namespace HW_10_1
             return changedValue;
         }
 
-        #endregion
-
-
-        #region Внутренние методы ViewVodel 
-
-
-
-        #endregion
+        
     }
 }

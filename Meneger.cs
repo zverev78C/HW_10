@@ -19,6 +19,7 @@ namespace HW_10_1
         public void Load(ILoadSave load)
         {
             Сlients = load.Load();
+            LoadSave = load;  // не забыть обратится в регион "Костыли" и исправить 
         }
         /// <summary>
         /// метод создания нового клиента для менеджера  
@@ -37,11 +38,18 @@ namespace HW_10_1
             newClient.LastChengedField = "Все обязательные поля";
             newClient.LastChengedType = "Создание нового клиента";
 
-            Сlients.Add(newClient);
-            
+            Сlients.Add(newClient);  //добавление нового клиента в список 
+
+            Save(LoadSave);   //  сразу сохранение клиентского списка 
         }
-
-
+        /// <summary>
+        /// Метод сохранения списка клиентов 
+        /// </summary>
+        /// <param name="save"></param>
+        public void Save(ILoadSave save)
+        {
+            save.Save(Сlients);
+        }
 
 
 
@@ -73,7 +81,13 @@ namespace HW_10_1
 
 
 
-        
+
+        #region Костыли которые потом надо убрать
+        ILoadSave LoadSave { get; set; }
+
+        #endregion
+
+
 
 
     }

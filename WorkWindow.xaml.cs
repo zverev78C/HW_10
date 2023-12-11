@@ -69,10 +69,7 @@ namespace HW_10_1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Save_Click(object sender, RoutedEventArgs e)
-        {
-            vm.SaveClient(); // пока просто  заглушка 
-        }
+        
 
         #region Методы добавляющие служебную информацию к клиенту 
 

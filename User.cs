@@ -12,16 +12,13 @@ namespace HW_10_1
     {
         protected static ObservableCollection<Client> Сlients = new ObservableCollection<Client>();
 
-
         public static  ReadOnlyObservableCollection<Client> MyPublicClients;
-
 
         public static void LoadBase ()
         {
             MyPublicClients = new ReadOnlyObservableCollection<Client>(Сlients);
         }
         
-
         public virtual string Name { get => Name; }
 
     }

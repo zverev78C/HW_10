@@ -13,13 +13,7 @@ namespace HW_10_1
 
         void NewClient(params string[] args);
 
-
-
-
-
-
-
-        void SaveClient();
+        void Save(ILoadSave save);
 
        
 

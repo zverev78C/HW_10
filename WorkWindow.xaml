@@ -280,9 +280,9 @@
                     <Button x:Name="Button_Save" 
                             Background="#FF839BE4" 
                             Content="Сохранить"
-                            FontSize="16" 
-                            Click="Button_Save_Click" 
-                            Grid.Column="3" Grid.Row="1" >
+                            FontSize="16"
+                            Grid.Column="3" Grid.Row="1" 
+                            IsEnabled="False">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="5"/>

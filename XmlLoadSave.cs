@@ -16,7 +16,6 @@ namespace HW_10_1
         /// </summary>
         public void Save(ObservableCollection<Client> clients)
         {
-            
             XmlSerializer SX = new XmlSerializer(typeof(ObservableCollection<Client>));
             using (StreamWriter sw = new StreamWriter("BackUp.xml", false))
             {

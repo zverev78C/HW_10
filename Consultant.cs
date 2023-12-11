@@ -4,7 +4,7 @@ using System.Windows;
 namespace HW_10_1
 {
     /// <summary>
-    /// Класс консультант который знает о репозитории и обращется к нему в пределах уровня доступа 
+    /// Класс консультант  
     /// </summary>
     class Consultant : User, IUserInterface
     {
@@ -12,22 +12,25 @@ namespace HW_10_1
         /// Имя класса на кирилице для сохранения в логи 
         /// </summary>
         public override string Name { get => "Консультант"; }
-
+        /// <summary>
+        /// метод загрузки списка клиентов в коллекцию 
+        /// </summary>
+        /// <param name="load"></param>
         public void Load(ILoadSave load)
         {
             Сlients = load.Load();
+            LoadSave = load;  // не забыть обратится в регион "Костыли" 
+        }
+        /// <summary>
+        /// Метод сохранения списка клиентов 
+        /// </summary>
+        /// <param name="save"></param>
+        public void Save(ILoadSave save)
+        {
+            save.Save (Сlients);
         }
 
 
-
-
-
-
-
-
-
-
-        #region Методы  запросов в репазиторий
 
 
 
@@ -60,10 +63,8 @@ namespace HW_10_1
             MessageBox.Show("У вас нет права создавать нового клиента");
         }
 
-        public void SaveClient()
-        {
-            throw new System.NotImplementedException();
-        }
+        #region Костыли которые потом надо убрать
+        ILoadSave LoadSave { get; set; }
 
         #endregion
     }
