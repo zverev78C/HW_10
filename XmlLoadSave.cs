@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -13,10 +14,10 @@ namespace HW_10_1
         /// <summary>
         /// Метод сохранения списка клиентов в файл  
         /// </summary>
-        public void Save(List<Client> clients)
+        public void Save(ObservableCollection<Client> clients)
         {
             
-            XmlSerializer SX = new XmlSerializer(typeof(List<Client>));
+            XmlSerializer SX = new XmlSerializer(typeof(ObservableCollection<Client>));
             using (StreamWriter sw = new StreamWriter("BackUp.xml", false))
             {
                 {
@@ -27,19 +28,20 @@ namespace HW_10_1
         /// <summary>
         /// Метод загрузки данных в базу из файла  
         /// </summary>
-        public List<Client> Load()
+        public ObservableCollection<Client> Load()
         {
-            List<Client> BasicListClients = new List<Client>();
-            XmlSerializer SX = new XmlSerializer(typeof(List<Client>));
+            ObservableCollection<Client> BasicListClients = new ObservableCollection<Client>();
+            XmlSerializer SX = new XmlSerializer(typeof(ObservableCollection<Client>));
             if (File.Exists("BackUp.xml")) // проверка на наличие файла попытка считывать происходит только при наличии файла Ы
             {
                 using (StreamReader sr = new StreamReader("BackUp.xml"))
                 {
-                    BasicListClients = SX.Deserialize(sr) as List<Client>;
+                    BasicListClients = SX.Deserialize(sr) as ObservableCollection<Client>;
                 }
             }
             return BasicListClients;
         }
+
         #endregion
     }
 }

@@ -9,18 +9,20 @@ namespace HW_10_1
         /// </summary>
         string Name { get; }
 
+        void Load(ILoadSave load);
 
-        /// <summary>
-        /// метод создающий коллекцию клиентов для ViewModel 
-        /// </summary>
-        /// <returns>коллекция клиентов</returns>
-        ObservableCollection<Client> GetAllClients();
+
+
+
+
+
+
 
         Client NewClient(params string[] args);
 
         void SaveClient();
 
-        Client GetClient(int i);
+       
 
        
         /// <summary>

@@ -11,7 +11,7 @@ namespace HW_10_1
         /// <summary>
         /// Список возможных пользователей 
         /// </summary>
-        private static List<IUserInterface> users = new List<IUserInterface>()
+        private static List<IUserInterface> UsersType = new List<IUserInterface>()
         {
             new Meneger(),
             new Consultant(),
@@ -24,8 +24,26 @@ namespace HW_10_1
         /// <returns>Экземпляр класса пользовотеля</returns>
         public static IUserInterface GetType (int value)
         {
-            return users[value];
+            return UsersType[value];
         }
 
+        /// <summary>
+        /// Список возможных источников данных для модели 
+        /// </summary>
+        private static List<ILoadSave> SerialType = new List<ILoadSave>()
+        {
+            new XmlLoadSave (),
+            new JsonLoadSave (),
+        };
+
+        /// <summary>
+        /// Метод устанваивающий источник данных для модели 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static ILoadSave GetSerial(int value)
+        {
+           return SerialType[value];
+        }
     }
 }

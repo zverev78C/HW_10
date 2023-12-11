@@ -1,21 +1,39 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
+using Newtonsoft.Json.Linq;
 
 namespace HW_10_1
 {
     class ViewModel
     {
+        /// <summary>
+        /// устанавливает уровень доступа к данным через класс пользователя
+        /// </summary>
+        static IUserInterface _user;
+        /// <summary>
+        /// устанваливает сериализатор для наполнения модели 
+        /// </summary>
+        static ILoadSave _serialType;
+        public static void UserSetup(int value)
+        {           
+            _user = ProgrammVlidator.GetType(value);  // запрос экземпляра класса для _user. 
+            _serialType = ProgrammVlidator.GetSerial(0); // запрос на класс сериализатор сейчас ноль потому что пока реализован только XML
 
-        IUserInterface user;
+            _user.Load(_serialType);
+            User.LoadBase();
+        }
 
-        public int authorizationСhoice 
-        {            
-            set
-            {
-                if (value == 2) { Environment.Exit(0); } // выход из приложения
-                user = ProgrammVlidator.GetType(value);
-            } 
-        }   
+        public ViewModel()
+        {
+
+        }
+
+        /// <summary>
+        /// Коллекция клиентов для просмотра   
+        /// </summary>
+        public ReadOnlyObservableCollection<Client> VmClients { get; set; } = User.MyPublicClients;
 
 
         /// <summary>
@@ -25,13 +43,11 @@ namespace HW_10_1
         /// <summary>
         /// индекс клиента в коллекции короткой инфо
         /// </summary>
-        public int SelectedIndex { get; set; } //{ selectedIndex = value; GetSelectedClient(value); } // ViewVodel узнает о View 
-        
+       public int SelectedIndex { get; set; } //{ selectedIndex = value; GetSelectedClient(value); } // ViewVodel узнает о View 
 
-        /// <summary>
-        /// Коллекция клиентов для просмотра   
-        /// </summary>
-        public static ObservableCollection<Client> BaseClients { get ;  set ; } = new ObservableCollection<Client>();
+
+        
+        
         /// <summary>
         /// Выбраный в окне клиент 
         /// </summary>
@@ -40,16 +56,7 @@ namespace HW_10_1
 
         #region Конструкторы 
 
-        public ViewModel()
-        {
-            user = ProgrammVlidator.GetUser();
-            if (BaseClients.Count == 0)  // если список клиентов пуст пробуем загрузить список 
-            {
-                BaseClients = user.GetAllClients();
-            }
-        }
 
-        
 
         #endregion
 
@@ -65,9 +72,9 @@ namespace HW_10_1
         /// <param name="args"></param>
         public void NewClientShowWindow(params string[] args)
         {
-            Client concretClient = user.NewClient(args);
+            Client concretClient = _user.NewClient(args);
             amountClients++;
-            BaseClients.Add(concretClient);
+            //BaseClients.Add(concretClient);
             SaveClient();
         }
         /// <summary>
@@ -78,24 +85,24 @@ namespace HW_10_1
         /// <param name="typeChenge">тип изменения</param>
         public void ChangeAnyField(string changeField, string typeChenge, string newValue)
         {
-            if (changeField == "Фамилия") { SelectedClient.LastName = newValue; BaseClients[SelectedIndex].LastName = newValue; }
+           // if (changeField == "Фамилия") { SelectedClient.LastName = newValue; BaseClients[SelectedIndex].LastName = newValue; }
             if (changeField == "Имя") { SelectedClient.FirstName = newValue; }
             if (changeField == "Отчество") { SelectedClient.MiddelName = newValue; }
-            if (changeField == "Телефон") { SelectedClient.Phone = newValue; BaseClients[SelectedIndex].Phone = newValue; }
+           // if (changeField == "Телефон") { SelectedClient.Phone = newValue; BaseClients[SelectedIndex].Phone = newValue; }
             if (changeField == "Паспорт") { SelectedClient.Pasport = newValue; }
 
             SelectedClient.DateTimeLastChenging = DateTime.Now.ToString();
-            SelectedClient.LastChenger = user.Name;   //берет значение поля класса 
+            SelectedClient.LastChenger = _user.Name;   //берет значение поля класса 
             SelectedClient.LastChengedField = changeField;
             SelectedClient.LastChengedType = typeChenge;
 
-            user.ChangeAnyField(SelectedClient, SelectedIndex);
+            _user.ChangeAnyField(SelectedClient, SelectedIndex);
             SaveClient();
         }
 
         internal void SaveClient()
         {
-            user.SaveClient();
+            _user.SaveClient();
         }
 
         /// <summary>

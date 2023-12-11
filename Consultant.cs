@@ -12,8 +12,12 @@ namespace HW_10_1
         /// </summary>
         public override string Name { get => "Консультант"; }
 
+        public void Load(ILoadSave load)
+        {
+            Сlients = load.Load();
+        }
 
-        
+
 
 
 
@@ -24,23 +28,7 @@ namespace HW_10_1
 
         #region Методы  запросов в репазиторий
 
-        /// <summary>
-        /// метод возвращающий клиента согласно допуска для View
-        /// </summary>
-        /// <param name="i">индекс клиента</param>
-        /// <returns></returns>
-        public  Client GetClient(int i)
-        {
-            Client concretClient = rep.GetClient();
 
-            //concretClient.Pasport = concretClient.Pasport != null ? "(****) ***-***" : "номера нет.";
-            //concretClient.DateTimeLastChenging = null;
-            //concretClient.LastChenger = null;
-            //concretClient.LastChengedField = null;
-            //concretClient.LastChengedType = null;
-
-            return concretClient;
-        }
 
         public  void ChangeAnyField(Client concretClient, int indexClient)
         {

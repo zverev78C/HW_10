@@ -10,21 +10,19 @@ namespace HW_10_1
     /// </summary>
     abstract class User 
     {
-        public ObservableCollection<Client> Сlients { get; set; } = new ObservableCollection<Client>();
+        protected static ObservableCollection<Client> Сlients = new ObservableCollection<Client>();
 
+
+        public static  ReadOnlyObservableCollection<Client> MyPublicClients;
+
+
+        public static void LoadBase ()
+        {
+            MyPublicClients = new ReadOnlyObservableCollection<Client>(Сlients);
+        }
+        
 
         public virtual string Name { get => Name; }
-
-        /// <summary>
-        /// Метод загрузки данных через интерфейс IloaddSave который определяет как и откуда будут загружены данные  
-        /// </summary>
-        /// <param name="load"></param>
-        /// <returns></returns>
-        public  void Load(ILoadSave load)
-        {
-            Сlients = load.Load();
-        }
-
 
     }
 }

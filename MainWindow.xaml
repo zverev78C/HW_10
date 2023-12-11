@@ -23,7 +23,7 @@
          Grid.ColumnSpan="2" 
          BorderBrush="#FF1E6582" Grid.RowSpan="14">
         </Border>
-        <TextBlock x:Name="Приветствие"
+        <TextBlock x:Name="Wellcome"
                    Margin="0,37,0,0" 
                    TextWrapping="Wrap" 
                    Text="Добро пожаловать в информационную программу" 
@@ -33,9 +33,8 @@
                    HorizontalAlignment="Center"
                    Width="318"
                    Foreground="#FF46034A"/>
-        <ComboBox x:Name="Choose" 
-                  DataContext="{Binding Path=authorizationСhoice}"
-                  SelectionChanged="cb1_Choose_SelectionChanged"
+        <ComboBox x:Name="Choice" 
+                  SelectionChanged="Choice_SelectionChanged_1"
                   HorizontalAlignment="Center" 
                   Margin="0,203,0,0" 
                   VerticalAlignment="Top" 

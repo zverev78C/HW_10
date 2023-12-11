@@ -11,47 +11,23 @@ namespace HW_10_1
         /// <summary>
         /// Имя класса на кирилице для сохранения в логи 
         /// </summary>
-        public override string Name { get => "Менеджер"; } 
+        public override string Name { get => "Менеджер"; }
 
-        
-
-
-
-
-
-
-        private static int CountClients;
-
-        public Meneger() { rep.CountsClientHandler = GetCount; }
-        //public Meneger(IRepos repos) 
-        //{
-        //   // rep = repos;
-        //    rep.CountsClientHandler = GetCount;
-        //}
-        
-
-
-        public static void GetCount(int count)
+        public void Load(ILoadSave load)
         {
-            CountClients = count;
+            Сlients = load.Load();
         }
+
+
+
+
+
+
+
+
 
 
         #region Методы для работы с репозиторием 
-
-        public ObservableCollection<Client> GetAllClients()
-        {
-            ObservableCollection<Client> tList = new ObservableCollection<Client>();
-            for (int i = 0; i < CountClients; i++)
-            {
-                Client tClient = new Client();
-                tClient = rep.GetClient();
-                tList.Add(tClient);
-            }
-            return tList;
-        }
-
-
 
 
         /// <summary>
@@ -86,7 +62,7 @@ namespace HW_10_1
 
         public  void ChangeAnyField(Client concretClient, int indexClient)
         {
-            //rep.ChangeClient(concretClient, indexClient);
+            throw new NotImplementedException();
         }
 
         public int Start()

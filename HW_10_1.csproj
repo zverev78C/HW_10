@@ -29,6 +29,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -82,7 +83,6 @@
       <DependentUpon>NewClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProgrammVlidator.cs" />
-    <Compile Include="Repository.cs" />
     <Compile Include="User.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="WorkWindow.xaml.cs">

@@ -23,19 +23,19 @@ namespace HW_10_1
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModel();
+           // DataContext = new ViewModel();
         }
 
-        /// <summary>
-        /// Событие выбор поля в ComboBox
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cb1_Choose_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {           
-            WorkWindow workWindow = new WorkWindow();
-            workWindow.Show(); // открытие окна
+
+        private void Choice_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            if (Choice.SelectedIndex == 2) { Environment.Exit(0); }
+            ViewModel.UserSetup(Choice.SelectedIndex);
+
+            WorkWindow workWindow = new WorkWindow();                 // создание экземпляра рабочего окна программы
+            workWindow.Show();                                        // открытие окна
             Close();
         }
+
     }
 }
