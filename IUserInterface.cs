@@ -15,14 +15,10 @@ namespace HW_10_1
 
         void Save(ILoadSave save);
 
-       
-
-       
         /// <summary>
-        /// Метод частичного изменения клиента 
+        /// Метод редактирования клиента 
         /// </summary>
         /// <param name="concretClient"></param>
-        /// <param name="indexClient"></param>
-        void ChangeAnyField(Client concretClient, int indexClient);
+        void ChangeAnyField(Client concretClient);
     }
 }

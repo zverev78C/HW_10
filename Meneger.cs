@@ -28,6 +28,7 @@ namespace HW_10_1
         public  void NewClient(params string[] args)
         {
             Client newClient = new Client();
+            newClient.ID = Сlients[Сlients.Count - 1].ID + 1;
             newClient.LastName = args[0];
             newClient.FirstName = args[1];
             newClient.MiddelName = args[2];
@@ -50,34 +51,32 @@ namespace HW_10_1
         {
             save.Save(Сlients);
         }
-
-
-
-
-        public  void ChangeAnyField(Client concretClient, int indexClient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Start()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SaveClient()
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
-        /// метод возвращающий клиента согласно допуска для View
+        /// Метод редактирования клиеннта и сохранения после редактирования
         /// </summary>
-        /// <param name="i">индекс клиента</param>
-        /// <returns></returns>
-        public Client GetClient(int i)
+        /// <param name="concretClient"></param>
+        public  void ChangeAnyField(Client concretClient)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < Сlients.Count; i++)
+            {
+                if (Сlients[i].ID == concretClient.ID)
+                {
+                    Сlients[i].LastName = concretClient.LastName;
+                    Сlients[i].FirstName = concretClient.FirstName;
+                    Сlients[i].MiddelName = concretClient.MiddelName;
+                    Сlients[i].Phone = concretClient.Phone;
+                    Сlients[i].Pasport = concretClient.Pasport;
+                    Сlients[i].DateTimeLastChenging = concretClient.DateTimeLastChenging;
+                    Сlients[i].LastChenger = concretClient.LastChenger;
+                    Сlients[i].LastChengedField = concretClient.LastChengedField;
+                    Сlients[i].LastChengedType = concretClient.LastChengedType;
+                    break;
+                }
+            }
+            Save(LoadSave);
         }
+
+       
 
 
 

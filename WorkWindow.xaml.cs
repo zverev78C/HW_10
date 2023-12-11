@@ -43,6 +43,8 @@ namespace HW_10_1
             }
         }
 
+
+
         /// <summary>
         /// Реакция на нажатие кнопки Выход  
         /// </summary>
@@ -88,7 +90,6 @@ namespace HW_10_1
         private void TBx_SelectedClientPhone_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             FieldChanged("Телефон", TBx_SelectedClientPhone.Text, TBx_SelectedClientPhone);
-            MessageBox.Show("Хуяк, бля!!! gjnthz");
         }
         private void TBx_SelectedClientPasport_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {

@@ -33,12 +33,10 @@ namespace HW_10_1
         /// Коллекция клиентов для просмотра   
         /// </summary>
         public ReadOnlyObservableCollection<Client> VmClients { get; set; } = User.MyPublicClients;
-
         /// <summary>
         /// Выбраный в окне клиент 
         /// </summary>
         public Client SelectedClient { get; set; }
-
         /// <summary>
         /// Метод добавления нового клиента в базу
         /// </summary>
@@ -46,7 +44,6 @@ namespace HW_10_1
         public void NewClientShowWindow(params string[] args)
         {
            _user.NewClient(args);
-            
         }
 
 
@@ -63,10 +60,10 @@ namespace HW_10_1
         /// <param name="typeChenge">тип изменения</param>
         public void ChangeAnyField(string changeField, string typeChenge, string newValue)
         {
-           // if (changeField == "Фамилия") { SelectedClient.LastName = newValue; BaseClients[SelectedIndex].LastName = newValue; }
+            if (changeField == "Фамилия") { SelectedClient.LastName = newValue; }
             if (changeField == "Имя") { SelectedClient.FirstName = newValue; }
             if (changeField == "Отчество") { SelectedClient.MiddelName = newValue; }
-           // if (changeField == "Телефон") { SelectedClient.Phone = newValue; BaseClients[SelectedIndex].Phone = newValue; }
+            if (changeField == "Телефон") { SelectedClient.Phone = newValue; }
             if (changeField == "Паспорт") { SelectedClient.Pasport = newValue; }
 
             SelectedClient.DateTimeLastChenging = DateTime.Now.ToString();
@@ -74,7 +71,7 @@ namespace HW_10_1
             SelectedClient.LastChengedField = changeField;
             SelectedClient.LastChengedType = typeChenge;
 
-           // _user.ChangeAnyField(SelectedClient);
+            _user.ChangeAnyField(SelectedClient);
             
         }
 

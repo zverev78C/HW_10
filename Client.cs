@@ -72,7 +72,11 @@ namespace HW_10_1
         /// <summary>
         /// уникальный номер клиента  
         /// </summary>
-        public int ID {  get{ return this._id; } set { this._id = value; } }
+        public int ID 
+        { 
+            get{ return this._id; } 
+            set { this._id = value; } 
+        }
         /// <summary>
         /// Фамилия  
         /// </summary>

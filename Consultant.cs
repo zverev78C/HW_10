@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Net.Sockets;
 using System.Windows;
 
 namespace HW_10_1
@@ -22,48 +23,52 @@ namespace HW_10_1
             LoadSave = load;  // не забыть обратится в регион "Костыли" 
         }
         /// <summary>
-        /// Метод сохранения списка клиентов 
+        /// Метод сохранения списка клиентов   
         /// </summary>
         /// <param name="save"></param>
         public void Save(ILoadSave save)
         {
             save.Save (Сlients);
         }
-
-
-
-
-
-        public  void ChangeAnyField(Client concretClient, int indexClient)
-        {
-            //if (concretClient.LastChengedField == "Телефон")
-            //{
-            //    Client tempClient = rep.GetClientInfo(indexClient);
-            //    tempClient.Phone = concretClient.Phone;
-            //    tempClient.DateTimeLastChenging = concretClient.DateTimeLastChenging;
-            //    tempClient.LastChenger = concretClient.LastChenger;
-            //    tempClient.LastChengedField = concretClient.LastChengedField;
-            //    tempClient.LastChengedType = concretClient.LastChengedType;
-            //    rep.ChangeClient(tempClient, indexClient);
-            //}
-        }
-
-        public ObservableCollection<Client> GetAllClients()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public int Start()
-        {
-            throw new System.NotImplementedException();
-        }
-
+        /// <summary>
+        /// Метод заглушка у консультанта нет прав на добавление клиентов 
+        /// </summary>
+        /// <param name="args"></param>
         public void NewClient(params string[] args)
         {
             MessageBox.Show("У вас нет права создавать нового клиента");
         }
+        /// <summary>
+        /// Метод редактирования клиеннта и сохранения после редактирования
+        /// </summary>
+        /// <param name="concretClient"></param>
+        public void ChangeAnyField(Client concretClient)
+        {
+            if (concretClient.LastChengedField == "Телефон")
+            {
+                for (int i = 0; i < Сlients.Count; i++)
+                {
+                    if (Сlients[i].ID == concretClient.ID)
+                    {
+                        Сlients[i].Phone = concretClient.Phone;
+                        Сlients[i].DateTimeLastChenging = concretClient.DateTimeLastChenging;
+                        Сlients[i].LastChenger = concretClient.LastChenger;
+                        Сlients[i].LastChengedField = concretClient.LastChengedField;
+                        Сlients[i].LastChengedType = concretClient.LastChengedType;
+                        break;
+                    }
+                }
+                Save(LoadSave);
+            }
+        }
+
+       
+
+       
+      
 
         #region Костыли которые потом надо убрать
+
         ILoadSave LoadSave { get; set; }
 
         #endregion
