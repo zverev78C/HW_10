@@ -85,9 +85,5 @@ namespace HW_10_1
         ILoadSave LoadSave { get; set; }
 
         #endregion
-
-
-
-
     }
 }

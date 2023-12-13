@@ -16,15 +16,9 @@
     <Window.DataContext>
         <local:ViewModel />
     </Window.DataContext>
-    
-    
-    <Border x:Name="BorderMain"
-        CornerRadius="10" 
-        Background="#FF9EDFFB" 
-        BorderThickness="5"
-        BorderBrush="#FF1E6582" 
-        Grid.ColumnSpan="4" 
-        Grid.RowSpan="3">
+
+
+    <Border x:Name="BorderMain" CornerRadius="10" Background="#FF9EDFFB" BorderThickness="5" BorderBrush="#FF1E6582" Grid.ColumnSpan="4" Grid.RowSpan="3">
         <Grid x:Name="MainGrid">
             <Grid.ColumnDefinitions >
                 <ColumnDefinition Width="350*" />
@@ -35,216 +29,135 @@
                 <RowDefinition Height="80*"/>
                 <RowDefinition Height="10*"/>
             </Grid.RowDefinitions>
+            
             <Grid x:Name="DetailClientGrid" Grid.Row="1" Grid.Column="1" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30*"/>
                     <RowDefinition Height="40*"/>
                     <RowDefinition Height="40*"/>
                 </Grid.RowDefinitions>
-                <GroupBox x:Name="GroupNameSelectedClient" 
-                          BorderThickness="0"
-                          Header="Информация о Клиенте"
-                           DataContext="{Binding SelectedClient}">
-                    <Grid x:Name="InfoClient">
-                        <Grid.ColumnDefinitions >
-                            <ColumnDefinition Width="5*" />
-                            <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="5*" />
-                            <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="5*" />
-                            <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="5*" />
-                            <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="5*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25*"/>
-                            <RowDefinition Height="25*"/>
-                            <RowDefinition Height="25*"/>
-                            <RowDefinition Height="25*"/>
-                            <RowDefinition Height="25*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock x:Name="TBl_SelectedClientLastName" 
-                                   Grid.Row="1"
-                                   Grid.Column="1"
-                                   Text="Фамилия"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   FontSize="16">
-                            
-                        </TextBlock>
-                        <TextBlock x:Name="TBl_SelectedClientFirstName" 
-                                   Grid.Row="2" 
-                                   Grid.Column="1"
-                                   Text="Имя"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   FontSize="16"/>
-                        <TextBlock x:Name="TBl_SelectedClientMiddelName" 
-                                   Grid.Row="3" 
-                                   Grid.Column="1"
-                                   Text="Отчество"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   FontSize="16"/>
-                        <TextBlock x:Name="TBl_SelectedClientPhone" 
-                                   Grid.Row="1"
-                                   Grid.Column="5"
-                                   Text="Телефон"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   FontSize="16"/>
-                        <TextBlock x:Name="TBl_SelectedClientPasport" 
-                                   Grid.Row="1"
-                                   Grid.Column="7"
-                                   Text="Паспорт"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   FontSize="16"/>
-                        <TextBox x:Name="TBx_SelectedClientLastName"  
-                                 Grid.Row="1"
-                                 Grid.Column="3"  
-                                 Background="#FF9EDFFB"
-                                 BorderThickness="1,1,1,0"
-                                 BorderBrush="#FF1E6582"
-                                 Text="{Binding LastName, Mode=TwoWay}" 
-                                 HorizontalContentAlignment="Center" 
-                                 VerticalContentAlignment="Center" 
-                                 LostKeyboardFocus="TBx_SelectedClientLastName_LostKeyboardFocus" 
-                                 ToolTip="Фамилия" />
-                        <TextBox x:Name="TBx_SelectedClientFirstName" 
-                                 Grid.Row="2" 
-                                 Grid.Column="3" 
-                                 Background="#FF9EDFFB"
-                                 BorderThickness="1,1,1,0"
-                                 BorderBrush="#FF1E6582"
-                                 Text="{Binding FirstName}" 
-                                 HorizontalContentAlignment="Center" 
-                                 VerticalContentAlignment="Center" LostKeyboardFocus="TBx_SelectedClientFirstName_LostKeyboardFocus"/>
-                        <TextBox x:Name="TBx_SelectedClientMiddelName" 
-                                 Grid.Row="3" 
-                                 Grid.Column="3" 
-                                 Background="#FF9EDFFB"
-                                 BorderThickness="1"
-                                 BorderBrush="#FF1E6582"
-                                 HorizontalContentAlignment="Center" 
-                                 VerticalContentAlignment="Center" 
-                                 Text="{Binding MiddelName}" LostKeyboardFocus="TBx_SelectedClientMiddelName_LostKeyboardFocus"   />
-                        <TextBox x:Name="TBx_SelectedClientPhone" 
-                                 Grid.Row="2" 
-                                 Grid.Column="5" 
-                                 Background="#FF9EDFFB"
-                                 BorderThickness="1"
-                                 BorderBrush="#FF1E6582" 
-                                 Text="{Binding Path=Phone, StringFormat={}{0:(###)###-####}}" 
-                                 PreviewTextInput="NumberValidationTextBox" 
-                                 HorizontalContentAlignment="Center" 
-                                 VerticalContentAlignment="Center" LostKeyboardFocus="TBx_SelectedClientPhone_LostKeyboardFocus" TextInput="TBx_SelectedClientPhone_TextInput"  />
-                        <TextBox x:Name="TBx_SelectedClientPasport" 
-                                 Grid.Row="2" 
-                                 Grid.Column="7" 
-                                 Background="#FF9EDFFB"
-                                 BorderThickness="1"
-                                 BorderBrush="#FF1E6582" 
-                                 Text="{Binding Pasport}" 
-                                 HorizontalContentAlignment="Center" 
-                                 VerticalContentAlignment="Center" 
-                                 LostKeyboardFocus="TBx_SelectedClientPasport_LostKeyboardFocus" 
-                                 PreviewTextInput="NumberValidationTextBox" />
-                    </Grid>
-                </GroupBox>
-                <GroupBox x:Name="GroupContactInfoClient" 
-                          Grid.Row="1" 
-                          BorderThickness="0" 
-                          Header="Информация о Счетах Клиента">
 
-                </GroupBox>
-                <GroupBox x:Name="GroupSystemInfoClient" 
-                          Grid.Row="2"  
-                          BorderThickness="0" 
-                          Header="Системная Информация о Клиенте"
-                          DataContext="{Binding SelectedClient}">
-                    <Grid x:Name="GridSustemInfoClients">
-                        <Grid.ColumnDefinitions >
-                            <ColumnDefinition Width="5*" />
-                            <ColumnDefinition Width="40*"/>
-                            <ColumnDefinition Width="5*" />
-                            <ColumnDefinition Width="40*"/>
-                            <ColumnDefinition Width="5*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="15*"/>
-                            <RowDefinition Height="20*"/>
-                            <RowDefinition Height="20*"/>
-                            <RowDefinition Height="20*"/>
-                            <RowDefinition Height="20*"/>
-                            <RowDefinition Height="15*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock x:Name="TBl_SelectedClientDataTimeLastChanging" 
-                                   Grid.Row="1" 
-                                   Grid.Column="1"
-                                   Text="Дата последнего изменения"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   FontSize="16" TextWrapping="Wrap" TextAlignment="Center"/>
-                        <TextBlock x:Name="TBl_SelectedClientLastChanger" 
-                                   Grid.Row="2" 
-                                   Grid.Column="1"
-                                   Text="Последний менял:"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   FontSize="16"/>
-                        <TextBlock x:Name="TBl_SelectedClientLastChangigField" 
-                                   Grid.Row="3" 
-                                   Grid.Column="1"
-                                   Text="Измененое поле"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   FontSize="16"/>
-                        <TextBlock x:Name="TBl_SelectedClientLastChangedType" 
-                                   Grid.Row="4" 
-                                   Grid.Column="1"
-                                   Text="Тип изменений"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   FontSize="16"/>
-                        <TextBlock x:Name="TBx_SelectedClientDataTimeLastChanging"  
-                                   Grid.Row="1" 
-                                   Grid.Column="3"
-                                   Text="{Binding Path=DateTimeLastChenging}" 
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   FontSize="14"/>
-                        <TextBlock x:Name="TBx_SelectedClientLastChanger" 
-                                   Grid.Row="2" 
-                                   Grid.Column="3" 
-                                   Text="{Binding LastChenger}" 
-                                   FontSize="14"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" />
-                        <TextBlock x:Name="TBx_SelectedClientChangigField" 
-                                   Grid.Row="3" 
-                                   Grid.Column="3" 
-                                   Text="{Binding LastChengedField}" 
-                                   FontSize="14"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" />
-                        <TextBlock x:Name="TBx_SelectedClientLastChangedType" 
-                                   Grid.Row="4" 
-                                   Grid.Column="3" 
-                                   Text="{Binding LastChengedType}"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   FontSize="14"/>
-                        <Border x:Name="BorderSys1SelectedClient" BorderBrush="#FF1E6582" BorderThickness="1,1,1,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
-                        <Border x:Name="BorderSys2SelectedClient" BorderBrush="#FF1E6582" BorderThickness="1,1,1,0" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
-                        <Border x:Name="BorderSys3SelectedClient" BorderBrush="#FF1E6582" BorderThickness="1,1,1,0" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
-                        <Border x:Name="BorderSys4SelectedClient" BorderBrush="#FF1E6582" BorderThickness="1" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
-                    </Grid>
-                </GroupBox>
-                <Border x:Name="BorderNameSelectedClient" BorderBrush="#FF1E6582" BorderThickness="2"/>
-                <Border x:Name="BorderContactInfoClient" BorderBrush="#FF1E6582" BorderThickness="2" Grid.Row="1"/>
-                <Border x:Name="BorderSystemInfoClient" BorderBrush="#FF1E6582" BorderThickness="2" Grid.Row="2"/>
+                <Border x:Name="BorderNameSelectedClient" BorderBrush="#FF1E6582" BorderThickness="2">
+                    <GroupBox x:Name="GroupNameSelectedClient" BorderThickness="0" Header="Информация о Клиенте" DataContext="{Binding SelectedClient}">
+                        <Grid x:Name="InfoClient">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25*"/>
+                                <RowDefinition Height="25*"/>
+                                <RowDefinition Height="25*"/>
+                                <RowDefinition Height="25*"/>
+                                <RowDefinition Height="25*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="TBl_SelectedClientLastName" Grid.Row="1" Grid.Column="1" Text="Фамилия" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                            <TextBlock x:Name="TBl_SelectedClientFirstName" Grid.Row="2" Grid.Column="1" Text="Имя" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                            <TextBlock x:Name="TBl_SelectedClientMiddelName" Grid.Row="3" Grid.Column="1" Text="Отчество" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                            <TextBlock x:Name="TBl_SelectedClientPhone" Grid.Row="1" Grid.Column="5" Text="Телефон" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                            <TextBlock x:Name="TBl_SelectedClientPasport" Grid.Row="1" Grid.Column="7" Text="Паспорт" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                            <TextBox x:Name="TBx_SelectedClientLastName"  
+                  Grid.Row="1"
+                  Grid.Column="3"  
+                  Background="#FF9EDFFB"
+                  BorderThickness="1,1,1,0"
+                  BorderBrush="#FF1E6582"
+                  Text="{Binding LastName, Mode=TwoWay}" 
+                  HorizontalContentAlignment="Center" 
+                  VerticalContentAlignment="Center" 
+                  LostKeyboardFocus="TBx_SelectedClientLastName_LostKeyboardFocus" 
+                  ToolTip="Фамилия" />
+                            <TextBox x:Name="TBx_SelectedClientFirstName" 
+                  Grid.Row="2" 
+                  Grid.Column="3" 
+                  Background="#FF9EDFFB"
+                  BorderThickness="1,1,1,0"
+                  BorderBrush="#FF1E6582"
+                  Text="{Binding FirstName}" 
+                  HorizontalContentAlignment="Center" 
+                  VerticalContentAlignment="Center" LostKeyboardFocus="TBx_SelectedClientFirstName_LostKeyboardFocus"/>
+                            <TextBox x:Name="TBx_SelectedClientMiddelName" 
+                  Grid.Row="3" 
+                  Grid.Column="3" 
+                  Background="#FF9EDFFB"
+                  BorderThickness="1"
+                  BorderBrush="#FF1E6582"
+                  HorizontalContentAlignment="Center" 
+                  VerticalContentAlignment="Center" 
+                  Text="{Binding MiddelName}" LostKeyboardFocus="TBx_SelectedClientMiddelName_LostKeyboardFocus"   />
+                            <TextBox x:Name="TBx_SelectedClientPhone" 
+                  Grid.Row="2" 
+                  Grid.Column="5" 
+                  Background="#FF9EDFFB"
+                  BorderThickness="1"
+                  BorderBrush="#FF1E6582" 
+                  Text="{Binding Path=Phone, StringFormat={}{0:(000)000-00-00}, UpdateSourceTrigger=PropertyChanged}" 
+                  PreviewTextInput="NumberValidationTextBox" 
+                  HorizontalContentAlignment="Center" 
+                  VerticalContentAlignment="Center"
+                  LostKeyboardFocus="TBx_SelectedClientPhone_LostKeyboardFocus"/>
+                            <TextBox x:Name="TBx_SelectedClientPasport" 
+                  Grid.Row="2" 
+                  Grid.Column="7" 
+                  Background="#FF9EDFFB"
+                  BorderThickness="1"
+                  BorderBrush="#FF1E6582" 
+                  Text="{Binding Pasport, StringFormat={}{0:(####)###-###}}" 
+                  HorizontalContentAlignment="Center" 
+                  VerticalContentAlignment="Center" 
+                  LostKeyboardFocus="TBx_SelectedClientPasport_LostKeyboardFocus" 
+                  PreviewTextInput="NumberValidationTextBox" />
+                        </Grid>
+                    </GroupBox>
+                </Border>
+                <Border x:Name="BorderContactInfoClient" BorderBrush="#FF1E6582" BorderThickness="2" Grid.Row="1">
+                    <GroupBox x:Name="GroupContactInfoClient" Grid.Row="1" BorderThickness="0" Header="Информация о Счетах Клиента">
+
+                    </GroupBox>
+                </Border>
+                <Border x:Name="BorderSystemInfoClient" BorderBrush="#FF1E6582" BorderThickness="2" Grid.Row="2">
+                    <GroupBox x:Name="GroupSystemInfoClient" Header="Системная Информация о Клиенте" DataContext="{Binding SelectedClient}" Grid.Row="2" BorderThickness="0">
+                        <Grid x:Name="GridSustemInfoClients">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="5*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="15*"/>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="15*"/>
+                            </Grid.RowDefinitions>
+                            
+                            <TextBlock x:Name="TBl_SelectedClientDataTimeLastChanging" Grid.Row="1" Grid.Column="1" Text="Дата последнего изменения" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <TextBlock x:Name="TBl_SelectedClientLastChanger" Grid.Row="2" Grid.Column="1" Text="Последний менял:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                            <TextBlock x:Name="TBl_SelectedClientLastChangigField" Grid.Row="3" Grid.Column="1" Text="Измененое поле" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                            <TextBlock x:Name="TBl_SelectedClientLastChangedType" Grid.Row="4" Grid.Column="1" Text="Тип изменений" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                            
+                            <TextBlock x:Name="TBx_SelectedClientDataTimeLastChanging" Text="{Binding Path=DateTimeLastChenging}" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+                            <TextBlock x:Name="TBx_SelectedClientLastChanger" Text="{Binding LastChenger}" Grid.Row="2" Grid.Column="3" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock x:Name="TBx_SelectedClientChangigField" Text="{Binding LastChengedField}" Grid.Row="3" Grid.Column="3" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock x:Name="TBx_SelectedClientLastChangedType" Text="{Binding LastChengedType}" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+                           
+                            <Border x:Name="BorderSys1SelectedClient" BorderBrush="#FF1E6582" BorderThickness="1,1,1,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Border x:Name="BorderSys2SelectedClient" BorderBrush="#FF1E6582" BorderThickness="1,1,1,0" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Border x:Name="BorderSys3SelectedClient" BorderBrush="#FF1E6582" BorderThickness="1,1,1,0" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Border x:Name="BorderSys4SelectedClient" BorderBrush="#FF1E6582" BorderThickness="1" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
+                        </Grid>
+                    </GroupBox>
+                </Border>
             </Grid>
             <GroupBox x:Name="ButtonGroup" 
                       Grid.Row="2" 
@@ -308,53 +221,55 @@
                       Grid.Row="2" 
                       BorderThickness="0">
             </GroupBox>
-            <GroupBox x:Name="ListGroup" 
-                      Grid.Row="1" 
-                      BorderThickness="0">
-                <DataGrid x:Name="ClientsList" 
-                          Background="#FF9EDFFB" 
-                          BorderThickness="0" 
-                          ItemsSource="{Binding Path=VmClients, UpdateSourceTrigger=PropertyChanged}" 
-                          ScrollViewer.VerticalScrollBarVisibility="Disabled" 
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                          SelectedItem="{Binding SelectedClient}" 
-                          AutoGenerateColumns="False" RowHeaderWidth="0" 
-                          HorizontalContentAlignment="Stretch" 
-                          VerticalContentAlignment="Stretch" 
-                          CanUserAddRows="False" CanUserDeleteRows="False" 
-                          CanUserResizeRows="False" IsReadOnly="True" 
-                          RowBackground="Transparent" CanUserReorderColumns="False" CanUserResizeColumns="False" HeadersVisibility="Column" RowDetailsVisibilityMode="Collapsed" >
-                    <DataGrid.Resources>
-                        <Style TargetType="{x:Type DataGridColumnHeader}">
-                            <Setter Property="Background" Value="#FF839BE4" />
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            <Setter Property="BorderThickness" Value="1" />
-                            <Setter Property="FontWeight" Value="Bold" />
-                        </Style>
-                        <Style TargetType="{ x:Type DataGridCell }">
-                            <Style.Triggers >
-                                <Trigger Property="IsSelected" Value="True">
-                                    <Setter Property="Foreground" Value="Black"/>
-                                    <Setter Property="Background" Value="#FF839BE4" />
-                                    <Setter Property="BorderThickness" Value="0" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGrid.Resources>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" Width="4*"/>
-                        <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}" Width="3*"/>
-                    </DataGrid.Columns>
-                   
-                </DataGrid>
-            </GroupBox>
             <GroupBox x:Name="MottoGroup" 
                       Grid.Row="0" 
                       Grid.ColumnSpan="2"
                       BorderThickness="0">
 
             </GroupBox>
-            <Border x:Name="BorderListGroup" BorderBrush="#FF1E6582" BorderThickness="2" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+            
+            <Border x:Name="BorderListGroup" BorderBrush="#FF1E6582" BorderThickness="2" Grid.Row="1">
+                <GroupBox x:Name="ListGroup" BorderThickness="0">
+                    <DataGrid x:Name="ClientsList" 
+                              ItemsSource="{Binding Path=VmClients, UpdateSourceTrigger=PropertyChanged}" 
+                              SelectedItem="{Binding SelectedClient}" 
+                              Background="#FF9EDFFB" 
+                              BorderThickness="0" 
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              AutoGenerateColumns="False" RowHeaderWidth="0" 
+                              HorizontalContentAlignment="Stretch" 
+                              VerticalContentAlignment="Stretch" 
+                              CanUserAddRows="False" CanUserDeleteRows="False" 
+                              CanUserResizeRows="False" IsReadOnly="True" 
+                              RowBackground="Transparent" 
+                              CanUserReorderColumns="False" CanUserResizeColumns="False" 
+                              HeadersVisibility="Column" RowDetailsVisibilityMode="Collapsed" >
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#FF839BE4" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="BorderThickness" Value="1" />
+                                <Setter Property="FontWeight" Value="Bold" />
+                            </Style>
+                            <Style TargetType="{ x:Type DataGridCell }">
+                                <Style.Triggers >
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Background" Value="#FF839BE4" />
+                                        <Setter Property="BorderThickness" Value="0" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" Width="4*"/>
+                            <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}" Width="3*"/>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                </GroupBox>
+            </Border>
             <Border x:Name="BorderFoundGroup" BorderBrush="#FF1E6582" BorderThickness="2" Grid.Row="2"/>
             <Border x:Name="BorderMottoGroup" BorderBrush="#FF1E6582" BorderThickness="2"  Grid.ColumnSpan="2"/>
             <Border x:Name="BorderButtonGroup" BorderBrush="#FF1E6582" BorderThickness="2" Grid.Row="2" Grid.Column="2"/>

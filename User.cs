@@ -4,7 +4,6 @@ using System.Configuration;
 
 namespace HW_10_1
 {
-
     /// <summary>
     /// Базовый класс для менеджера и консультанта 
     /// </summary>
@@ -20,6 +19,5 @@ namespace HW_10_1
         }
         
         public virtual string Name { get => Name; }
-
     }
 }
