@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HW_10_1"
         mc:Ignorable="d"
-        ResizeMode="NoResize"   
+        ResizeMode="NoResize"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         Background="Transparent" 
         WindowStyle="None"
         Title="WorkWindow" 
         Height="800"
-        Width="1152">
+        Width="1152" IsManipulationEnabled="True">
     <Window.DataContext>
         <local:ViewModel />
     </Window.DataContext>
-
 
     <Border x:Name="BorderMain" CornerRadius="10" Background="#FF9EDFFB" BorderThickness="5" BorderBrush="#FF1E6582" Grid.ColumnSpan="4" Grid.RowSpan="3">
         <Grid x:Name="MainGrid">
@@ -25,7 +25,7 @@
                 <ColumnDefinition Width="650*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="10*"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="80*"/>
                 <RowDefinition Height="10*"/>
             </Grid.RowDefinitions>
@@ -271,7 +271,8 @@
                 </GroupBox>
             </Border>
             <Border x:Name="BorderFoundGroup" BorderBrush="#FF1E6582" BorderThickness="2" Grid.Row="2"/>
-            <Border x:Name="BorderMottoGroup" BorderBrush="#FF1E6582" BorderThickness="2"  Grid.ColumnSpan="2"/>
+            <Border x:Name="BorderMottoGroup" BorderBrush="#FF1E6582" BorderThickness="2"  
+                    Grid.ColumnSpan="2" Background="#FF1E6582"/>
             <Border x:Name="BorderButtonGroup" BorderBrush="#FF1E6582" BorderThickness="2" Grid.Row="2" Grid.Column="2"/>
         </Grid>
     </Border>
