@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,7 +24,7 @@ namespace HW_10_1
         /// </summary>
         /// <param name="value"></param>
         public static void UserSetup(int value)
-        {           
+        {
             _user = ProgrammVlidator.GetType(value);  // запрос экземпляра класса для _user. 
             _serialType = ProgrammVlidator.GetSerial(0); // запрос на класс сериализатор сейчас ноль потому что пока реализован только XML
 
@@ -34,39 +35,46 @@ namespace HW_10_1
         /// Коллекция клиентов для просмотра   
         /// </summary>
         public ReadOnlyObservableCollection<Client> VmClients { get; set; } = User.MyPublicClients;
+
+
+        private Client _selectedClient;
         /// <summary>
         /// Выбраный в окне клиент 
         /// </summary>
-        public Client SelectedClient { get; set; }
+        public Client SelectedClient
+        {
+            get { return _selectedClient; }
+            set
+            {
+                _selectedClient = value;
+                SelectedClient.ChangedProp += A => ChangeAnyFieldLoger(A);
+            }
+        }
         /// <summary>
         /// Метод добавления нового клиента в базу
         /// </summary>
         /// <param name="args"></param>
         public void NewClientShowWindow(params string[] args)
         {
-           _user.NewClient(args);
+            _user.NewClient(args);
         }
 
-
-        public void ChangeAnyField1(string prop)
+        public void ChangeAnyFieldLoger(string prop)
         {
-            //if (prop == "Фамилия") { SelectedClient.LastName = newValue; }
-            //if (prop == "Имя") { SelectedClient.FirstName = newValue; }
-            //if (prop == "Отчество") { SelectedClient.MiddelName = newValue; }
-            //if (prop == "Телефон") { SelectedClient.Phone = newValue; }
-            //if (prop == "Паспорт") { SelectedClient.Pasport = newValue; }
-
-            //SelectedClient.DateTimeLastChenging = DateTime.Now.ToString();
-            //SelectedClient.LastChenger = _user.Name;   //берет значение поля класса 
-            //SelectedClient.LastChengedField = changeField;
-            //SelectedClient.LastChengedType = typeChenge;
-
-            //_user.ChangeAnyField(SelectedClient);
+            MessageBox.Show(SelectedClient.LastName);
+            //SelectedClient.LastName = TBx_SelectedClientLastName.Text
+            SelectedClient.DateTimeLastChenging = DateTime.Now.ToString();
+            SelectedClient.LastChenger = _user.Name;   //берет значение поля класса 
+            SelectedClient.LastChengedField = PropName[prop];
+            SelectedClient.LastChengedType = "Редактирование";
+            MessageBox.Show(SelectedClient.LastName);
 
         }
 
-
-
+        private Dictionary<string, string> PropName = new Dictionary<string, string>()
+        {
+            {"LastName", "Фамилия" },
+            };
 
         /// <summary>
         /// Метод добавления системных полей в клиента
@@ -76,19 +84,19 @@ namespace HW_10_1
         /// <param name="typeChenge">тип изменения</param>
         public void ChangeAnyField(string changeField, string typeChenge, string newValue)
         {
-            if (changeField == "Фамилия") { SelectedClient.LastName = newValue; }
-            if (changeField == "Имя") { SelectedClient.FirstName = newValue; }
-            if (changeField == "Отчество") { SelectedClient.MiddelName = newValue; }
-            if (changeField == "Телефон") { SelectedClient.Phone = newValue; }
-            if (changeField == "Паспорт") { SelectedClient.Pasport = newValue; }
+            //if (changeField == "Фамилия") { SelectedClient.LastName = newValue; }
+            //if (changeField == "Имя") { SelectedClient.FirstName = newValue; }
+            //if (changeField == "Отчество") { SelectedClient.MiddelName = newValue; }
+            //if (changeField == "Телефон") { SelectedClient.Phone = newValue; }
+            //if (changeField == "Паспорт") { SelectedClient.Pasport = newValue; }
 
-            SelectedClient.DateTimeLastChenging = DateTime.Now.ToString();
-            SelectedClient.LastChenger = _user.Name;   //берет значение поля класса 
-            SelectedClient.LastChengedField = changeField;
-            SelectedClient.LastChengedType = typeChenge;
+            //SelectedClient.DateTimeLastChenging = DateTime.Now.ToString();
+            //SelectedClient.LastChenger = _user.Name;   //берет значение поля класса 
+            //SelectedClient.LastChengedField = changeField;
+            //SelectedClient.LastChengedType = typeChenge;
 
-            _user.ChangeAnyField(SelectedClient);
-            
+            //_user.ChangeAnyField(SelectedClient);
+
         }
 
 

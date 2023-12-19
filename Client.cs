@@ -23,6 +23,7 @@ namespace HW_10_1
             }
         }
 
+        public event Action<string> ChangedProp;
 
         #region Поля 
 
@@ -89,6 +90,7 @@ namespace HW_10_1
             { 
                 this.lastName = value;
                 OnPropertyChanged(nameof(this.LastName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+                ChangedProp?.Invoke(nameof(LastName));
             }
         }
         /// <summary>

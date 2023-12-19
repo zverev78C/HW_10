@@ -77,23 +77,23 @@ namespace HW_10_1
 
         private void TBx_SelectedClientLastName_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            vm.ChangeAnyField("Фамилия", "Изменение", TBx_SelectedClientLastName.Text);
+            //vm.ChangeAnyField("Фамилия", "Изменение", TBx_SelectedClientLastName.Text);
         }
         private void TBx_SelectedClientFirstName_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            vm.ChangeAnyField("Имя", "Изменение", TBx_SelectedClientFirstName.Text);
+            //vm.ChangeAnyField("Имя", "Изменение", TBx_SelectedClientFirstName.Text);
         }
         private void TBx_SelectedClientMiddelName_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            vm.ChangeAnyField("Отчество", "Изменение", TBx_SelectedClientMiddelName.Text);
+            //vm.ChangeAnyField("Отчество", "Изменение", TBx_SelectedClientMiddelName.Text);
         }
         private void TBx_SelectedClientPhone_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            FieldChanged("Телефон", TBx_SelectedClientPhone.Text, TBx_SelectedClientPhone);
+            //FieldChanged("Телефон", TBx_SelectedClientPhone.Text, TBx_SelectedClientPhone);
         }
         private void TBx_SelectedClientPasport_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            FieldChanged("Паспорт", TBx_SelectedClientPasport.Text, TBx_SelectedClientPasport);
+            //FieldChanged("Паспорт", TBx_SelectedClientPasport.Text, TBx_SelectedClientPasport);
         }
 
         #endregion
