@@ -48,7 +48,22 @@ namespace HW_10_1
         }
 
 
+        public void ChangeAnyField1(string prop)
+        {
+            if (prop == "Фамилия") { SelectedClient.LastName = newValue; }
+            if (prop == "Имя") { SelectedClient.FirstName = newValue; }
+            if (prop == "Отчество") { SelectedClient.MiddelName = newValue; }
+            if (prop == "Телефон") { SelectedClient.Phone = newValue; }
+            if (prop == "Паспорт") { SelectedClient.Pasport = newValue; }
 
+            SelectedClient.DateTimeLastChenging = DateTime.Now.ToString();
+            SelectedClient.LastChenger = _user.Name;   //берет значение поля класса 
+            SelectedClient.LastChengedField = changeField;
+            SelectedClient.LastChengedType = typeChenge;
+
+            _user.ChangeAnyField(SelectedClient);
+
+        }
 
 
 

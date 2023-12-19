@@ -22,11 +22,10 @@ namespace HW_10_1
 
     public partial class WorkWindow : Window
     {
-        ViewModel vm;   // экземпляр класса ViewVodel
+        ViewModel vm = new ViewModel();   // экземпляр класса ViewVodel
 
         public WorkWindow()
         {
-            vm = new ViewModel();
             InitializeComponent();
             DataContext = vm;           // данные для View
 
@@ -65,12 +64,10 @@ namespace HW_10_1
             newClient.Show();                       // открытие созданого окна  
         }
         /// <summary>
-        /// реакция на нажатие кнопки Сохранить  
+        /// Возможность такскать окно по экрану 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
-
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -132,10 +129,6 @@ namespace HW_10_1
 
         }
 
-        private void TBx_SelectedClientPhone_TextInput(object sender, TextCompositionEventArgs e)
-        {
-            MessageBox.Show("Хуяк, бля!!!");
-        }
     }
 }
 

@@ -18,7 +18,9 @@ namespace HW_10_1
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));                
+            }
         }
 
 
