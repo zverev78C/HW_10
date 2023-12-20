@@ -37,6 +37,9 @@ namespace HW_10_1
         public ReadOnlyObservableCollection<Client> VmClients { get; set; } = User.MyPublicClients;
 
 
+
+
+
         private Client _selectedClient;
         /// <summary>
         /// Выбраный в окне клиент 
@@ -61,7 +64,6 @@ namespace HW_10_1
 
         public void ChangeAnyFieldLoger(string prop)
         {
-            //SelectedClient.LastName = TBx_SelectedClientLastName.Text
             SelectedClient.DateTimeLastChenging = DateTime.Now.ToString();
             SelectedClient.LastChenger = _user.Name;   //берет значение поля класса 
             SelectedClient.LastChengedField = PropName[prop];
@@ -73,7 +75,7 @@ namespace HW_10_1
         private Dictionary<string, string> PropName = new Dictionary<string, string>()
         {
             {"LastName", "Фамилия" },
-            };
+        };
 
         /// <summary>
         /// Метод добавления системных полей в клиента

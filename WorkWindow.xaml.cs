@@ -73,6 +73,9 @@ namespace HW_10_1
             this.DragMove();
         }
 
+
+
+
         #region Методы добавляющие служебную информацию к клиенту 
 
         private void TBx_SelectedClientLastName_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -98,16 +101,9 @@ namespace HW_10_1
 
         #endregion
 
-        private void FieldChanged(string nameField, string newValue, System.Windows.Controls.TextBox name)
+        private void FieldChanged(string nameField, string newValue, TextBox name)
         {
-            string result = ViewModel.InsertNumber(newValue);
-            if (result == "-1")
-            {
-                name.Text = "номер должен состоять только из цифр.";
-                name.Foreground = Brushes.Red;
-                name.BorderBrush = Brushes.Red;
-            }
-            else if (result == "-2")
+            if (newValue.Length != 10)
             {
                 name.Text = "номер должен содержать десять цифр.";
                 name.Foreground = Brushes.Red;
@@ -117,8 +113,8 @@ namespace HW_10_1
             {
                 name.Foreground = Brushes.Black;
                 name.BorderBrush = Brushes.Silver;
-                name.Text = result;
-                vm.ChangeAnyField(nameField, "Изменение", result);
+                name.Text = newValue;
+                vm.ChangeAnyField(nameField, "Изменение", newValue);
             }
         }
 

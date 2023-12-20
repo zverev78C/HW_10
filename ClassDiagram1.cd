@@ -8,42 +8,44 @@
     </TypeIdentifier>
   </Class>
   <Class Name="HW_10_1.Client" Collapsed="true">
-    <Position X="6.75" Y="7" Width="1.5" />
+    <Position X="1" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAEAAIgBAgAIBAABCABABAAAQgAAgAAEAKAABAAg=</HashCode>
+      <HashCode>AAAgAEAIIgBAgAIBIABCABABgAAQgAAgAAEAKAABAAg=</HashCode>
       <FileName>Client.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Orientation="Right" Position="0.178" />
   </Class>
   <Class Name="HW_10_1.Consultant" Collapsed="true">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Position X="4.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAABAABAAAA=</HashCode>
+      <HashCode>AAAAgIAAAAAAAAAAAACAAIQAAAAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Consultant.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Orientation="Right" Position="0.308" />
   </Class>
   <Class Name="HW_10_1.JsonLoadSave" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="2.25" Y="7" Width="1.5" />
+    <Position X="1" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAIAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>JsonLoadSave.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Orientation="Right" Position="0.195" Collapsed="true" />
   </Class>
   <Class Name="HW_10_1.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="13.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Orientation="Left" Position="0.287" Collapsed="true" />
   </Class>
   <Class Name="HW_10_1.Meneger" Collapsed="true">
-    <Position X="2.75" Y="1.75" Width="1.5" />
+    <Position X="4.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACAAAQAAAAAAAAAAAEBAABAAAA=</HashCode>
+      <HashCode>AAAAgIAAAAAAAAAAAACAAIQAAAAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Meneger.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Orientation="Right" Position="0.216" />
   </Class>
   <Class Name="HW_10_1.NewClient" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="13.5" Y="1.5" Width="1.5" />
@@ -51,46 +53,37 @@
       <HashCode>AAAAAAIAAAAgAAAAAAAAAAEABAAQAAAAAACAAAAAAAA=</HashCode>
       <FileName>NewClient.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="HW_10_1.Repository" Collapsed="true">
-    <Position X="5.25" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAIAABAAAQCAAEAAAA=</HashCode>
-      <FileName>Repository.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Orientation="Left" Position="0.145" Collapsed="true" />
   </Class>
   <Class Name="HW_10_1.User" Collapsed="true">
-    <Position X="1.75" Y="0.5" Width="1.5" />
+    <Position X="4.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAKAAAQAAAAAAAAAAAEBAABAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAggAAAAAAAA=</HashCode>
       <FileName>User.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="HW_10_1.ViewModel">
-    <Position X="7.75" Y="1.25" Width="1.5" />
+    <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAAAAAAACQAAAAQAAEAAAAAAIEBAAAAAQA=</HashCode>
+      <HashCode>QAAEAEAQAAAAAAAAACUAAAAAABAAAIAAAAABAAAAAAA=</HashCode>
       <FileName>ViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HW_10_1.WorkWindow" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="13.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAERBAAAAgAAAEEQAAAAEAAAAAQAAAAACAAAACAAA=</HashCode>
+      <HashCode>AAAAEBBAAAAoAAAEEAAAAAEAAAAAQAAAAACAAAACAAA=</HashCode>
       <FileName>WorkWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Orientation="Left" Position="0.1" Collapsed="true" />
   </Class>
   <Class Name="HW_10_1.XmlLoadSave" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="7" Width="1.5" />
+    <Position X="1" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>XmlLoadSave.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Orientation="Right" Position="0.228" Collapsed="true" />
   </Class>
   <Class Name="HW_10_1.Properties.Resources" Collapsed="true">
     <Position X="15.75" Y="5.5" Width="1.5" />
@@ -104,17 +97,24 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
+  <Class Name="HW_10_1.ProgrammVlidator" Collapsed="true">
+    <Position X="9" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAABAAAAEAAAAQAAAAAAA=</HashCode>
+      <FileName>ProgrammVlidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="HW_10_1.ILoadSave" Collapsed="true">
-    <Position X="1.5" Y="4.5" Width="1.5" />
+    <Position X="2.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ILoadSave.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="HW_10_1.IUserInterface" Collapsed="true">
-    <Position X="4.25" Y="3" Width="1.5" />
+    <Position X="7.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAAACAAAAAAAACAAAQAAAAAAAAAAAEBAABAAAA=</HashCode>
+      <HashCode>AAAAgIAAAAAAAAAAAACAAAQAAAAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>IUserInterface.cs</FileName>
     </TypeIdentifier>
   </Interface>

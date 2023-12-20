@@ -16,6 +16,17 @@ namespace HW_10_1
             new Meneger(),
             new Consultant(),
         };
+        /// <summary>
+        /// Список возможных источников данных для модели 
+        /// </summary>
+        private static List<ILoadSave> SerialType = new List<ILoadSave>()
+        {
+            new XmlLoadSave (),
+            new JsonLoadSave (),
+        };
+
+
+
               
         /// <summary>
         /// Метод устанавливающий уровень доступа к данным  
@@ -26,16 +37,6 @@ namespace HW_10_1
         {
             return UsersType[value];
         }
-
-        /// <summary>
-        /// Список возможных источников данных для модели 
-        /// </summary>
-        private static List<ILoadSave> SerialType = new List<ILoadSave>()
-        {
-            new XmlLoadSave (),
-            new JsonLoadSave (),
-        };
-
         /// <summary>
         /// Метод устанваивающий источник данных для модели 
         /// </summary>
