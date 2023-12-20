@@ -61,14 +61,13 @@ namespace HW_10_1
 
         public void ChangeAnyFieldLoger(string prop)
         {
-            MessageBox.Show(SelectedClient.LastName);
             //SelectedClient.LastName = TBx_SelectedClientLastName.Text
             SelectedClient.DateTimeLastChenging = DateTime.Now.ToString();
             SelectedClient.LastChenger = _user.Name;   //берет значение поля класса 
             SelectedClient.LastChengedField = PropName[prop];
             SelectedClient.LastChengedType = "Редактирование";
             MessageBox.Show(SelectedClient.LastName);
-
+            _user.ChangeAnyField(SelectedClient);
         }
 
         private Dictionary<string, string> PropName = new Dictionary<string, string>()

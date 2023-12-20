@@ -89,11 +89,11 @@ namespace HW_10_1
         }
         private void TBx_SelectedClientPhone_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            //FieldChanged("Телефон", TBx_SelectedClientPhone.Text, TBx_SelectedClientPhone);
+            FieldChanged("Телефон", TBx_SelectedClientPhone.Text, TBx_SelectedClientPhone);
         }
         private void TBx_SelectedClientPasport_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            //FieldChanged("Паспорт", TBx_SelectedClientPasport.Text, TBx_SelectedClientPasport);
+            FieldChanged("Паспорт", TBx_SelectedClientPasport.Text, TBx_SelectedClientPasport);
         }
 
         #endregion
