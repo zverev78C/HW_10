@@ -98,7 +98,7 @@
                   Background="#FF9EDFFB"
                   BorderThickness="1"
                   BorderBrush="#FF1E6582" 
-                  Text="{Binding Path=Phone, StringFormat={}{0:(000)000-00-00}, UpdateSourceTrigger=PropertyChanged}" 
+                  Text="{Binding Path=Phone, StringFormat={}{0:(000)000-00-00}}" 
                   PreviewTextInput="NumberValidationTextBox" 
                   HorizontalContentAlignment="Center" 
                   VerticalContentAlignment="Center"

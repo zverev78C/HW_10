@@ -19,7 +19,8 @@ namespace HW_10_1
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {          
+    {
+        ViewModel Vm = new ViewModel();   // экземпляр класса ViewVodel
         public MainWindow()
         {
             InitializeComponent();
@@ -29,9 +30,10 @@ namespace HW_10_1
         private void Choice_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             if (Choice.SelectedIndex == 2) { Environment.Exit(0); }
-            ViewModel.UserSetup(Choice.SelectedIndex);
+            Vm.UserSetup(Choice.SelectedIndex);
 
             WorkWindow workWindow = new WorkWindow();                 // создание экземпляра рабочего окна программы
+            workWindow.vm = Vm;
             workWindow.Show();                                        // открытие окна
             Close();
         }

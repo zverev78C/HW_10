@@ -20,6 +20,7 @@ namespace HW_10_1
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
+                OnChangedProp(prop);
             }
         }
 
@@ -97,7 +98,6 @@ namespace HW_10_1
                 {
                     this.lastName = value;
                     OnPropertyChanged(nameof(this.LastName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
-                    OnChangedProp(nameof(LastName));
                 }
             }
         }
@@ -113,7 +113,6 @@ namespace HW_10_1
                 {
                     this.firstName = value;
                     OnPropertyChanged(nameof(this.FirstName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
-                    OnChangedProp(nameof(FirstName));
                 }
             }
         }
@@ -129,7 +128,6 @@ namespace HW_10_1
                 {
                     this.middelName = value;
                     OnPropertyChanged(nameof(this.MiddelName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
-                    OnChangedProp(nameof(MiddelName));
                 }
             }
         }
@@ -145,7 +143,6 @@ namespace HW_10_1
                 {
                     this.phone = value;
                     OnPropertyChanged(nameof(this.Phone)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
-                    OnChangedProp(nameof(Phone));
                 }
             }
         }
@@ -161,7 +158,6 @@ namespace HW_10_1
                 {
                     this.pasport = value;
                     OnPropertyChanged(nameof(this.Pasport)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
-                    OnChangedProp(nameof(Pasport));
                 }
             }
         }

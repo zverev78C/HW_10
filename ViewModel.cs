@@ -23,18 +23,19 @@ namespace HW_10_1
         /// так же загружает основную и пробрасывает в отслеживаемую коллекции данные 
         /// </summary>
         /// <param name="value"></param>
-        public static void UserSetup(int value)
+        public  void UserSetup(int value)
         {
             _user = ProgrammVlidator.GetType(value);  // запрос экземпляра класса для _user. 
             _serialType = ProgrammVlidator.GetSerial(0); // запрос на класс сериализатор сейчас ноль потому что пока реализован только XML
 
             _user.Load(_serialType); // определяется сериализатор и загружается основная коллекция
-            User.LoadBase(); // привязывается отслеживаемая коллекция
+            VmClients = new ReadOnlyObservableCollection<Client>(User.Сlients);
+            //User.LoadBase(); // привязывается отслеживаемая коллекция
         }
         /// <summary>
         /// Коллекция клиентов для просмотра   
         /// </summary>
-        public ReadOnlyObservableCollection<Client> VmClients { get; set; } = User.MyPublicClients;
+        public ReadOnlyObservableCollection<Client> VmClients { get; set; }
 
 
 

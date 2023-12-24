@@ -22,7 +22,7 @@ namespace HW_10_1
 
     public partial class WorkWindow : Window
     {
-        ViewModel vm = new ViewModel();   // экземпляр класса ViewVodel
+        internal ViewModel vm; //= new ViewModel();   // экземпляр класса ViewVodel
 
         public WorkWindow()
         {
@@ -80,15 +80,15 @@ namespace HW_10_1
 
         private void TBx_SelectedClientLastName_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            //vm.ChangeAnyField("Фамилия", "Изменение", TBx_SelectedClientLastName.Text);
+            //Vm.ChangeAnyField("Фамилия", "Изменение", TBx_SelectedClientLastName.Text);
         }
         private void TBx_SelectedClientFirstName_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            //vm.ChangeAnyField("Имя", "Изменение", TBx_SelectedClientFirstName.Text);
+            //Vm.ChangeAnyField("Имя", "Изменение", TBx_SelectedClientFirstName.Text);
         }
         private void TBx_SelectedClientMiddelName_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            //vm.ChangeAnyField("Отчество", "Изменение", TBx_SelectedClientMiddelName.Text);
+            //Vm.ChangeAnyField("Отчество", "Изменение", TBx_SelectedClientMiddelName.Text);
         }
         private void TBx_SelectedClientPhone_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
