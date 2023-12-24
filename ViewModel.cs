@@ -66,15 +66,19 @@ namespace HW_10_1
         {
             SelectedClient.DateTimeLastChenging = DateTime.Now.ToString();
             SelectedClient.LastChenger = _user.Name;   //берет значение поля класса 
+            MessageBox.Show(prop);
             SelectedClient.LastChengedField = PropName[prop];
             SelectedClient.LastChengedType = "Редактирование";
-            MessageBox.Show(SelectedClient.LastName);
             _user.ChangeAnyField(SelectedClient);
         }
 
         private Dictionary<string, string> PropName = new Dictionary<string, string>()
         {
             {"LastName", "Фамилия" },
+            {"FirstName", "Имя" },
+            {"MiddelName", "Отчество" },
+            {"Phone", "Номер телефона" },
+            {"Pasport", "Номер паспорта" },
         };
 
         /// <summary>

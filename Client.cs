@@ -7,10 +7,10 @@ namespace HW_10_1
     /// <summary>
     /// Класс лписывающий клиента (Model) 
     /// </summary>
-    public class Client :INotifyPropertyChanged
+    public class Client : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Метод, который скажет ViewModel, что нужно передать View новые данные  
         /// </summary>
@@ -19,11 +19,16 @@ namespace HW_10_1
         {
             if (PropertyChanged != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));                
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
             }
         }
 
+
         public event Action<string> ChangedProp;
+        public void OnChangedProp(string name)
+        {
+            ChangedProp?.Invoke(name);
+        }
 
         #region Поля 
 
@@ -75,10 +80,10 @@ namespace HW_10_1
         /// <summary>
         /// уникальный номер клиента  
         /// </summary>
-        public int ID 
-        { 
-            get{ return this._id; } 
-            set { this._id = value; } 
+        public int ID
+        {
+            get { return this._id; }
+            set { this._id = value; }
         }
         /// <summary>
         /// Фамилия  
@@ -86,11 +91,14 @@ namespace HW_10_1
         public string LastName
         {
             get { return this.lastName; }
-            set 
-            { 
-                this.lastName = value;
-                OnPropertyChanged(nameof(this.LastName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
-                ChangedProp?.Invoke(nameof(LastName));
+            set
+            {
+                if (lastName != value)
+                {
+                    this.lastName = value;
+                    OnPropertyChanged(nameof(this.LastName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+                    OnChangedProp(nameof(LastName));
+                }
             }
         }
         /// <summary>
@@ -99,10 +107,14 @@ namespace HW_10_1
         public string FirstName
         {
             get { return this.firstName; }
-            set 
+            set
             {
-                this.firstName = value;
-                OnPropertyChanged(nameof(this.FirstName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+                if (firstName != value)
+                {
+                    this.firstName = value;
+                    OnPropertyChanged(nameof(this.FirstName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+                    OnChangedProp(nameof(FirstName));
+                }
             }
         }
         /// <summary>
@@ -113,8 +125,12 @@ namespace HW_10_1
             get { return this.middelName; }
             set
             {
-                this.middelName = value;
-                OnPropertyChanged(nameof(this.MiddelName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели}
+                if (middelName != value)
+                {
+                    this.middelName = value;
+                    OnPropertyChanged(nameof(this.MiddelName)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+                    OnChangedProp(nameof(MiddelName));
+                }
             }
         }
         /// <summary>
@@ -123,10 +139,14 @@ namespace HW_10_1
         public string Phone
         {
             get { return phone; }
-            set 
+            set
             {
-                phone = value;
-                OnPropertyChanged(nameof(this.Phone)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+                if (phone != value)
+                {
+                    this.phone = value;
+                    OnPropertyChanged(nameof(this.Phone)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+                    OnChangedProp(nameof(Phone));
+                }
             }
         }
         /// <summary>
@@ -135,10 +155,14 @@ namespace HW_10_1
         public string Pasport
         {
             get { return pasport; }
-            set 
+            set
             {
-                pasport = value;
-                OnPropertyChanged(nameof(this.Pasport)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+                if (pasport != value)
+                {
+                    this.pasport = value;
+                    OnPropertyChanged(nameof(this.Pasport)); //Если свойство меняется, вызывается метод, который уведомляет об изменении модели
+                    OnChangedProp(nameof(Pasport));
+                }
             }
         }
         /// <summary>
